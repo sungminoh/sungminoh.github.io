@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "[Effective Python] 5. Concurrency and Parallelism"
-categories: development/python
+tags: python
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "[Effective Python] 3. Classes and Inheritance"
-categories: development/python
+tags: python
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "[Effective Python] 2. Functions"
-categories: development/python
+tags: python
 ---
 
 

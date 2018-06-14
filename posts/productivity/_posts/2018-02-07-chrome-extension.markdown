@@ -1,7 +1,6 @@
 ---
-layout: post
 title:  "생산성을 높이는 크롬 확장"
-categories: productivity
+tags: browser, chrome
 ---
 
 이거 없으면 정말 불편하겠다, 또는 거의 매일같이 사용하는 익스텐션에는 ★을 달아두었습니다.

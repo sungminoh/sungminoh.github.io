@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "[Effective Python] 4. Metaclasses and Attributes"
-categories: development/python
+tags: python
 ---
 
 

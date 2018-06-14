@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "[Effective Python] 6. Built-in Modules"
-categories: development/python
+tags: python
 ---
 
 

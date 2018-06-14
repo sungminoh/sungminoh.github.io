@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "[Effective Python] 8. Production"
-categories: development/python
+tags: python
 ---
 
 

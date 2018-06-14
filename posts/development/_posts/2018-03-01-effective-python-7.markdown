@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "[Effective Python] 7. Collaboration"
-categories: development/python
+tags: python
 ---
 
 

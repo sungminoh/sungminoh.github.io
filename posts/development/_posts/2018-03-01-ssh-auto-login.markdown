@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "SSH 자동 로그인"
-categories: development/linux
+tags: linux
 ---
 
 
