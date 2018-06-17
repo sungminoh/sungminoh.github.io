@@ -1600,7 +1600,6 @@ a.newer-posts:hover {
 
 .search .search-form {
   padding: 1rem;
-  width: 70%;
 }
 
 .search .search-form label {
@@ -1639,10 +1638,17 @@ a.newer-posts:hover {
   padding: 5px;
 }
 
-.search__results .search__result-date {
+.search__results li a:hover {
+  color: #333030;
+  -webkit-transform: scale(1.01);
+      -ms-transform: scale(1.01);
+          transform: scale(1.01);
+}
+
+.search__results li a .search__result-date {
   color: #BBB;
-  position: absolute;
-  right: 12px;
+  float: right;
+  margin-right: 10px;
 }
 
 .search__results.is-hidden {
