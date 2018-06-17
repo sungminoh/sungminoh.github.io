@@ -1,0 +1,13 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="{{ "/assets/js/bootstrap.min.js" | relative_url }}"></script>
+<script src="{{ "/assets/js/super-search.js" | relative_url }}"></script>
+<script>
+  superSearch({
+    searchFile: '/sitemap.xml',
+    searchSelector: '#search',
+    inputSelector: '#search__input',
+    resultsSelector: '#search__results'
+  });
+</script>
+<script src="{{ "/assets/js/main.js" | relative_url }}"></script>
