@@ -14,7 +14,6 @@
   }
   .search-form {
     padding: 1rem;
-    width: 70%;
     label {
       width: 20px;
       margin-right:10px;
@@ -43,14 +42,19 @@
       color: $dark-blue;
       display: block;
       padding: 5px;
+      &:hover {
+        color: $dark;
+        transform: scale(1.01);
+      }
+      .search__result-title {
+      }
+      .search__result-date {
+        color: #BBB;
+        float: right;
+        margin-right: 10px;
+      }
     }
   }
-  .search__result-date {
-    color: #BBB;
-    position: absolute;
-    right: 12px;
-  }
- 
 }
 
 .search__results.is-hidden {
