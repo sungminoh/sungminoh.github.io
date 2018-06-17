@@ -1573,20 +1573,34 @@ a.newer-posts:hover {
 }
 
 .search {
-  opacity: 0.7;
-  filter: alpha(opacity=70);
-  background-color: gray;
-  position: fixed;
-  top: 0px;
-  left: 0px;
   width: 100%;
-  padding: 30px;
+  max-width: 100%;
+  margin-bottom: 1.5rem;
+  -webkit-border-radius: 10px;
+          border-radius: 10px;
+  -webkit-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+  -webkit-box-shadow: 0 1px 1px 0 rgba(31, 35, 46, 0.15);
+          box-shadow: 0 1px 1px 0 rgba(31, 35, 46, 0.15);
+}
+
+.search:hover {
+  -webkit-transform: translate(0px, -2px);
+      -ms-transform: translate(0px, -2px);
+          transform: translate(0px, -2px);
+  -webkit-box-shadow: 0 15px 45px -10px rgba(10, 16, 34, 0.2);
+          box-shadow: 0 15px 45px -10px rgba(10, 16, 34, 0.2);
+}
+
+.search:hover .post-title {
+  -webkit-transform: scale3d(1.01, 1.01, 1.01);
+          transform: scale3d(1.01, 1.01, 1.01);
 }
 
 .search .search-form {
-  width: 100%;
-  height: 40px;
-  padding: 5px;
+  padding: 1rem;
+  width: 70%;
 }
 
 .search .search-form label {
@@ -1596,6 +1610,7 @@ a.newer-posts:hover {
 }
 
 .search .search-form input {
+  font-family: 'PT Serif', serif;
   width: -webkit-calc(100% - 45px);
   width: calc(100% - 45px);
   background: none;
@@ -1604,21 +1619,30 @@ a.newer-posts:hover {
   font-size: 18px;
 }
 
-.is-active .search__input {
-  -webkit-transform: translateY(0);
-      -ms-transform: translateY(0);
-          transform: translateY(0);
-}
-
 .search__results {
+  font-family: 'PT Serif', serif;
   list-style: none;
-  padding: 10px;
   overflow-x: hidden;
-  height: -webkit-calc(100% - 110px);
-  height: calc(100% - 110px);
   -webkit-transition: 0.2s ease;
   -o-transition: 0.2s ease;
   transition: 0.2s ease;
+}
+
+.search__results li {
+  border-top: 1px solid #f0f0f0;
+}
+
+.search__results li a {
+  text-decoration: none;
+  color: #263959;
+  display: block;
+  padding: 5px;
+}
+
+.search__results .search__result-date {
+  color: #BBB;
+  position: absolute;
+  right: 12px;
 }
 
 .search__results.is-hidden {
@@ -1627,21 +1651,6 @@ a.newer-posts:hover {
       -ms-transform: translateY(-1vh);
           transform: translateY(-1vh);
   display: none;
-}
-
-.search__results > li {
-  border-top: 1px solid #f0f0f0;
-}
-
-.search__results > li > a {
-  display: block;
-  padding: 10px;
-}
-
-.search__result-date {
-  color: #BBB;
-  position: absolute;
-  right: 12px;
 }
 
 .search.is-active {
