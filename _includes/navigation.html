@@ -1,0 +1,35 @@
+<nav class="nav">
+    {% assign default_paths = site.pages | map: "path" %}
+    {% assign page_paths = site.header_pages | default: default_paths %}
+
+    {% if page_paths %}
+      <ul>
+        {% for path in page_paths %}
+          {% assign my_page = site.pages | where: "path", path | first %}
+
+          {% if my_page.url contains "page" %}
+          {% elsif my_page.title %}
+            {% if my_page.url == page.url %}
+              <li>
+                <a href="#" class="page-link active">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i>
+                  <span>
+                    {{ my_page.title | escape }}
+                  </span>
+                </a>
+              </li>
+            {% else %}
+              <li>
+                <a href="{{ my_page.url | relative_url }}">
+                  <i class="fa {{ my_page.icon }}" aria-hidden="true"></i>
+                  <span>
+                    {{ my_page.title | escape }}
+                  </span>
+                </a>
+              </li>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+</nav>

@@ -1,51 +1,77 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
 title: Sungmin's journey
 email: smoh2044@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
+description: >-  # this means to ignore newlines until next conf
   Developer who is interested in recommendation system, personalization, etc.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://sungminoh.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: smoh2044
-github_username: sungminoh
+# permalink: ':title/'
+baseurl: ""  # the subpath of your site, e.g. /blog
+# url: "https://sungminoh.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+site-twitter:  #if your site has a twitter account, enter it here
+
+# Author Settings
+author: Sungmin  # add your name
+author-img: author.png  # add your photo
+about-author: >-
+  Developer who is interested in recommendation system, personalization, etc.
+# social-twitter: smoh2044
+# social-facebook: sungmin.oh.984
+social-github: sungminoh
+social-linkedin: sungminoh
+social-email: smoh2044@gmail.com
+
+# Disqus
 disqus:
   shortname: true
 
+# Tracker
+analytics: # Google Analytics
+
 # Build settings
-markdown: kramdown
-theme: minima
 plugins:
   - jekyll-feed
   - jekyll-default-layout
   - jekyll-titles-from-headings
   - jekyll-last-modified-at
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jemoji
+
+markdown: kramdown
 
 titles_from_headings:
   enabled:     true
   strip_title: false
   collections: false
 
+# Pagination
+paginate: 6
+paginate_path: "/posts/page/:num"
+
+# Default settings
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "main"
+      icon: "fa-dot-circle"
+  -
+    scope:
+      path: "posts"
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Sungmin"
+      permalink: ':categories/:title/'
+
 # Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - gulpfile.js
+  - package.json

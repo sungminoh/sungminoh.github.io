@@ -1,0 +1,23 @@
+<aside class="sidebar" id="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="{{site.baseurl}}/">
+          <img src="{{site.baseurl}}/assets/img/{% if site.author-img %}{{site.author-img}}{% else %}{{"author.png"}}{% endif %}" alt="{{site.author}}">
+        </a>
+      </div>
+      <div class="author-name">{{site.author}}</div>
+      <p>{{site.about-author}}</p>
+    </div>
+  </header> <!-- End Header -->
+  <body>
+     {% include navigation.html %}
+  </body>
+  {% include footer.html %}
+</aside> <!-- End Sidebar -->
+
+<aside class="sidebar" id="sidebar-toggler">
+  <div>
+    <i class="fa fa-angle-down" id='sidebar-toggler-icon'></i>
+  </div>
+</aside> <!-- End Sidebar -->
