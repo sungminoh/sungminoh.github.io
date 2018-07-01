@@ -450,6 +450,7 @@ template {
   -webkit-border-radius: 3px;
           border-radius: 3px;
   padding: 0.1rem 0.5rem;
+  background-color: #faf9f9;
 }
 
 .highlight .hll {
@@ -1660,6 +1661,17 @@ a.newer-posts:hover {
   color: #BBB;
   float: right;
   margin-right: 10px;
+}
+
+.search__results li .search__result-match {
+  font-size: 12px;
+  max-height: 100px;
+  overflow: overlay;
+}
+
+.search__results li .search__result-match .search__result-match__key {
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .search__results.is-hidden {
