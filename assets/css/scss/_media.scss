@@ -1,3 +1,13 @@
+@media only screen and (min-width : 1250px) {
+  $margin: calc((100% - 1250px) / 2);
+  .wrapper {
+    margin-left: $margin;
+  }
+  .sidebar {
+    left: $margin;
+  }
+}
+
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px) {
   .post {

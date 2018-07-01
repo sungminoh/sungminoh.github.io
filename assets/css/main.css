@@ -1451,6 +1451,17 @@ a.newer-posts:hover {
 }
 
 /* - - - - - - - - - - Media Styles - - - - - - - - - - */
+@media only screen and (min-width: 1250px) {
+  .wrapper {
+    margin-left: -webkit-calc((100% - 1250px) / 2);
+    margin-left: calc((100% - 1250px) / 2);
+  }
+  .sidebar {
+    left: -webkit-calc((100% - 1250px) / 2);
+    left: calc((100% - 1250px) / 2);
+  }
+}
+
 /* Medium Devices, Desktops */
 @media only screen and (max-width: 992px) {
   .post {
