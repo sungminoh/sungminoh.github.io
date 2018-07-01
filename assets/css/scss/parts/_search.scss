@@ -54,6 +54,15 @@
         margin-right: 10px;
       }
     }
+    .search__result-match {
+      font-size: 12px;
+      max-height: 100px;
+      overflow: overlay;
+      .search__result-match__key {
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
   }
 }
 
