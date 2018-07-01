@@ -125,7 +125,6 @@ MIT Licensed
         });
         return `<span class="search__result-match__key">${key}</span>: ${substrs.join('&emsp;. . .&emsp;')}</br>`
       })
-      console.log(results)
       let d = new Date(post.pubDate);
       return `
       <li>
