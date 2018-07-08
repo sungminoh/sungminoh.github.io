@@ -117,9 +117,11 @@ MIT Licensed
       let matches = result.matches.map(match => {
         let key = match.key;
         let substrs = match.indices.map(cor => {
-          let pre = match.value.slice(cor[0]-preMargin, cor[0]).trimStart();
+          let pre = match.value.slice(cor[0]-preMargin, cor[0]);
+          pre = pre.slice(pre.search(/\S|$/));
           let matchStr = match.value.slice(cor[0], cor[1]+1);
-          let post = match.value.slice(cor[1]+1, cor[1]+1+postMargin).trimEnd();
+          let post = match.value.slice(cor[1]+1, cor[1]+1+postMargin);
+          pre = pre.slice(pre.search(/.(?=\s*$)/));
           let color = matchStr.toLowerCase().includes(pattern) ? '#a3f5cd' : '#e8fcf3'
           return `${pre}<span style="background-color:${color};">${matchStr}</span>${post}`
         });
