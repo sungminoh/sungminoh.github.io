@@ -518,9 +518,9 @@ class Customer(object):
 
 
 foo = Customer()
-print(repr(foo.firstname), foo.__dict__)  # '' {}
+print(repr(foo.first_name), foo.__dict__)  # '' {}
 foo.first_name = 'Euclid'
-print(repr(foo.firstname), foo.__dict__)  # 'Euclid' {'_first_name': 'Euclid'}.
+print(repr(foo.first_name), foo.__dict__)  # 'Euclid' {'_first_name': 'Euclid'}.
 ```
 
 위와 같은 구현은 어트리뷰트의 이름을 `Field`의 파라메터로 또 한번 써줘야 한다는 것이다. 메타클래스를 활용하면 이 반복을 줄일 수 있다.

@@ -23,7 +23,7 @@ disqus:
   shortname: true
 
 # Tracker
-analytics: # Google Analytics
+google_analytics: UA-121996471-1
 
 # Build settings
 plugins:
