@@ -3,6 +3,7 @@ layout: post
 title:  "[Effective Python] 8. Production"
 tags: python
 img: effective-python.jpg
+published: false
 ---
 
 

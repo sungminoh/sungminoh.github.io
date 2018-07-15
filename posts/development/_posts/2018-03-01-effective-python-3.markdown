@@ -3,6 +3,7 @@ layout: post
 title:  "[Effective Python] 3. Classes and Inheritance"
 tags: python
 img: effective-python.jpg
+published: false
 ---
 
 
