@@ -2,6 +2,7 @@
 layout: post
 title:  "Decorator로 함수 실행시간 기록하기"
 tags: python
+img: python-decorator.png
 ---
 
 ## Decorator로 함수 실행시간 로깅하고, 이메일 알람보내기

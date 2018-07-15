@@ -2,6 +2,7 @@
 layout: post
 title:  "모듈별 로거 사용하기"
 tags: python
+img: python-logging.png
 ---
 
 

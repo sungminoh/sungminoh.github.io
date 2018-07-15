@@ -2,6 +2,7 @@
 layout: post
 title:  "SSH 자동 로그인"
 tags: linux
+img: ssh.png
 ---
 
 
