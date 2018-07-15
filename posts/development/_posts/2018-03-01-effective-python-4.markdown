@@ -2,6 +2,7 @@
 layout: post
 title:  "[Effective Python] 4. Metaclasses and Attributes"
 tags: python
+img: effective-python.jpg
 ---
 
 

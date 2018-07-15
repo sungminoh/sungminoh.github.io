@@ -2,6 +2,7 @@
 layout: post
 title:  "우분투에 파이썬 설치하기"
 tags: python linux
+img: python-ubuntu.png
 ---
 
 ## python 2.7 & pip2 설치

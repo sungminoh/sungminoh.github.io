@@ -2,6 +2,7 @@
 layout: post
 title:  "[Effective Python] 2. Functions"
 tags: python
+img: effective-python.jpg
 ---
 
 

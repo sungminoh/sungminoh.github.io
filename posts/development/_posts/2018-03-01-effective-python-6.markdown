@@ -2,6 +2,7 @@
 layout: post
 title:  "[Effective Python] 6. Built-in Modules"
 tags: python
+img: effective-python.jpg
 ---
 
 
