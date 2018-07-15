@@ -3,6 +3,7 @@ layout: post
 title:  "[Effective Python] 1. Pythonic Thinking"
 tags: python
 img: effective-python.jpg
+published: false
 ---
 
 

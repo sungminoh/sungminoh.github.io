@@ -3,6 +3,7 @@ layout: post
 title:  "[Effective Python] 7. Collaboration"
 tags: python
 img: effective-python.jpg
+published: false
 ---
 
 

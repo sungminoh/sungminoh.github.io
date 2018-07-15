@@ -3,6 +3,7 @@ layout: post
 title:  "[Effective Python] 5. Concurrency and Parallelism"
 tags: python
 img: effective-python.jpg
+published: false
 ---
 
 
