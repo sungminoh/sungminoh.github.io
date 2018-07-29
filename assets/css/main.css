@@ -770,7 +770,7 @@ template {
 }
 
 html {
-  line-height: 1.5;
+  line-height: 1.8;
 }
 
 body {
@@ -788,6 +788,8 @@ h1 {
 
 img {
   max-width: 100%;
+  padding-left: 10%;
+  padding-right: 10%;
   vertical-align: middle;
   display: inline-block;
 }
@@ -860,7 +862,6 @@ table thead {
 table thead th {
   font-size: 14px;
   font-weight: bold;
-  color: #fff;
   border-left: 1px solid #d0e4f5;
 }
 
@@ -1224,8 +1225,9 @@ footer .copyright {
   width: 30%;
   max-width: 100%;
   min-height: 11rem;
-  -webkit-background-size: cover;
-          background-size: cover;
+  -webkit-background-size: contain;
+          background-size: contain;
+  background-repeat: no-repeat;
   background-position: 50% 50%;
 }
 
@@ -1686,4 +1688,42 @@ a.newer-posts:hover {
 .search.is-active {
   opacity: 1;
   visibility: visible;
+}
+
+table {
+  padding: 0;
+}
+
+table tr {
+  border-top: 1px solid #cccccc;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+table tr th {
+  font-weight: bold;
+  border: 1px solid #cccccc;
+  text-align: left;
+  margin: 0;
+  padding: 6px 13px;
+}
+
+table tr td {
+  border: 1px solid #cccccc;
+  text-align: left;
+  margin: 0;
+  padding: 6px 13px;
+}
+
+table tr th :first-child, table tr td :first-child {
+  margin-top: 0;
+}
+
+table tr th :last-child, table tr td :last-child {
+  margin-bottom: 0;
 }

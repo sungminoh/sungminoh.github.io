@@ -7,7 +7,7 @@
 }
 
 html {
-  line-height: 1.5;
+  line-height: 1.8;
 }
 
 body {
@@ -25,6 +25,8 @@ h1 {
 
 img {
   max-width: 100%;
+  padding-left: 10%;
+  padding-right: 10%;
   vertical-align: middle;
   display: inline-block;
 }
@@ -89,7 +91,7 @@ table thead {
 table thead th {
   font-size: 14px;
   font-weight: bold;
-  color: #fff;
+  //color: #fff;
   border-left: 1px solid #d0e4f5;
 }
 table thead th:first-child {
@@ -149,3 +151,5 @@ table tfoot td {
 @import 'media';
 
 @import 'parts/search';
+
+@import 'overwrite'
