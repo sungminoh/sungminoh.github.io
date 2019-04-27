@@ -74,7 +74,7 @@ public static class MockFoo() extends Foo {
 
 그래서 이럴때 mockito처럼 사용할 수 있는 것이 있는데 그게 바로 powermockito이다. 아래와 같이 의존성을 추가하면 powermockito를 사용할 수 있다.
 
-```java
+```groovy
 testCompile group: 'org.powermock', name: 'powermock-api-mockito', version: '1.7.3'
 ```
 
@@ -119,7 +119,7 @@ public class FooTest {
 
 다만 powermockito를 사용할 때 문제가 있는데 만약 테스트코드에서 스파크를 사용한다면 `SparkContext` 를 생성할 때 아래와 같은 에러가 발생할 것이다.
 
-```java
+```
 java.io.IOException: failure to login
     at org.apache.hadoop.security.UserGroupInformation.loginUserFromSubject(UserGroupInformation.java:796)
     at org.apache.hadoop.security.UserGroupInformation.getLoginUser(UserGroupInformation.java:748)
