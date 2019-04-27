@@ -29,7 +29,6 @@ gulp.task('browser-sync', ['sass', 'img', 'jekyll-build'], function() {
         open: true,
         notify: false
     });
-    done();
 });
 
 // Compile files

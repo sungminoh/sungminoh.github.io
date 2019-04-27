@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "로컬 스파크에서 snappy 읽기 (hadoop build)"
-tags: spark, hadoop
+tags: [spark, hadoop]
 img: spark.png
 hide_img: True
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "MRNet-Product2Vec: A Multi-task Recurrent Neural Network for Product Embeddings"
-tags: paper, ml
+tags: [paper, ml]
 img: 2018-07-29-MRNet-Product2Vec/MRNet-Product2Vec-for-PG-specific.png
 hide_img: True
 ---

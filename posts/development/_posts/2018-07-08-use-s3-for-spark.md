@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "스파크(Spark)에서 S3 이용하기"
-tags: spark aws
+tags: [spark, aws]
 img: spark-s3.png
 ---
 
