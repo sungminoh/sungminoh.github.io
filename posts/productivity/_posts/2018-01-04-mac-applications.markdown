@@ -13,6 +13,7 @@ img: mac-appstore.png
 | ★ iTerm       | 터미널 {::nomarkdown}<ul><li>General: Quit when all windows are closed</li><li>Profiles-General: Reuse previous session's directory</li><li>Keys: ^b send ^[ b (뒤로 한단어 가기), ^f send ^[ f (앞으로 한단어 가기)</li></ul>{:/} |
 | Sublime Text2 | 범용 텍스트 편집기 (사실 많이 쓰지 않는다.) {::nomarkdown}<ul><li>usr/local/bin/sublime 에 link 등록</li>{:/}`ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/sublime`{::nomarkdown}</ul>{:/} |
 | ★ Coda        | 파일질라 같은 프로그램. 원격 서버를 등록해두고 파일관리할 때 쓴다. scp 대용 |
+| ★ forklift        | 요샌 이걸 더 잘쓴다. |
 | Dash          | 각종 언어 및 라이브러리의 document                  |
 | Rstudio       | R을 쓰기 위한 IDE                             |
 | ★ Go2Shell    | Finder에 현재 폴더로 터미널을 열 수 있는 버튼을 생성해 준다.   |
@@ -21,6 +22,8 @@ img: mac-appstore.png
 | JSONExport    | http 리퀘스트를 보내고 JSON형태의 응답을 볼 수 있다.       |
 | Color Squid   | 색상 선택이 고민될 때 한번쯤 써본다.                    |
 | Xcode         | 뭘 하려면 뭔가 필요.                             |
+| SnippetsLab | 코드 스니펫 보관               |
+| VimR      | VIM UI                        |
 
 
 ## 문서
@@ -85,16 +88,16 @@ img: mac-appstore.png
 
 ## 개인 생산성
 
-| App               | Description                              |
-| :---------------- | :--------------------------------------- |
+| App               | Description                                                  |
+| :---------------- | :----------------------------------------------------------- |
 | ★ Alfred          | spotlight를 대체한다. 훨씬 빠르고 workflow를 등록하여 내 입맛 대로 쓸 수 있다. {::nomarkdown}<ul><li>배터리 상태 보기</li><li>카페인 토글</li><li>환율 변환</li><li>최근 수정 항목</li><li>타이머</li><li>top process</li><li>네이버 지도</li><li>네이버 사전</li><li>다음 사전</li><li><a target="_blank" href="https://github.com/sungminoh/alfred-workflow-snumenu">학교 식단표</a></li><li><a target="_blank" href="https://github.com/sungminoh/alfred-workflow-stockprice">주가 확인</li><li><a target="_blank" href="https://github.com/sungminoh/alfred-workflow-cryptocurrency">코인 확인</li></ul>{:/} |
-| ★ Bartender       | 메뉴바에 올라가 있는 아이콘들을 숨기고 정리해준다.             |
+| ★ Bartender       | 메뉴바에 올라가 있는 아이콘들을 숨기고 정리해준다.           |
 | ★ BetterTouchTool | 맥에 깔 하나의 생산성 앱만 고르라면 BTT를 고른다. {::nomarkdown}<ul><li>⌥⇧⌃⌘ 에 key를 맵핑해 어플리케이션 및 기타 기능을 단축설정할 수 있다.</li><li>윈도우 리사이징도 맵핑할 수 있어 다른 어플리케이션이 필요 없다.</li><li>핸드폰에 BTT Remote 앱을 가지고 있다면, 폰으로 컴퓨터를 조작할 수 있다.</li></ul>{:/} |
 | ★ Karabiner       | 우측 ⌘키를 한영전환으로 바꾸고, key repeat 속도를 빠르게 해 둔다. Sierra에선 Karabiner-element를 사용한다. |
-| ★ Fantastical     | 최고의 달력 앱                                 |
+| ★ Fantastical     | 최고의 달력 앱                                               |
 | Wunderlist        | 할일 관리 앱. 매일 해야하는 일에 routine을 걸어두고 알람을 받는다. |
-| ★ Caffeine        | 컴퓨터 모니터가 sleep에 빠지지 않게 한다.               |
-| ★ Clipy           | 클립보드에 복사했던 것을 쌓아두었다 나중에 다시 꺼내 쓸 수 있다.    |
+| ★ Amphetamine     | 컴퓨터 모니터가 sleep에 빠지지 않게 한다.                    |
+| ★ Clipy           | 클립보드에 복사했던 것을 쌓아두었다 나중에 다시 꺼내 쓸 수 있다. |
 | ★ YouType         | 마우스 커서 옆에 현재 입력 언어 아이콘을 띄워둔다. 터미널에서 현재 설정된 언어를 확인하게 되는데 이 앱을 사용함으로써 좀 더 빠르게 확인할 수 있다. |
 | ★ afloat          | 창을 투명하게 만들거나 최상위에 띄워둘 수 있다. 시스템무결성보호를 끄고 설치해야한다. |
 | ★ Dropzone        | 파일을 드래그하면 다른 앱을 실행시키거나 디렉토리로 옮길 수 있는 바로가기 패널을 띄워준다. |
