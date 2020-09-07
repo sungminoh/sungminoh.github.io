@@ -561,7 +561,7 @@ percentages = normalize_func(lambda: read_file(path))
   normalize_defensive(numbers)  # No Error
   ```
 
-  ​
+  
 
 ### 18. Reduce Visual Noise with Variable Positional Arguments
 
@@ -791,40 +791,38 @@ print(albert.average_grade)  # 123
   ```python
   def increment_with_report(current, increments):
       added_count = 0  # 없는 키를 세기 위한 state
-
+  
       def missing():   # defaultdict의 hook. 키가 없을때 호출되며, state를 바꾼다.
           nonlocal added_count
           added_count += 1
           return 0
-
+  
       result = defaultdict(missing, current)
       for key, amount in increments:
           result[key] += amount
-
+  
       return result, added_count
   ```
 
-  result, count = increment_with_report(current, increments)
+  result, count = increment_with_report(current, increments
 
-```
 - 하지만 이런 예는 stateless 함수보다 읽기 어렵다. state를 감싼 작은 class는, stateful closure의 동작을 더 깔끔하게 보여준다. `__call__` 메소드를 구현하여 인스턴스 자체를 hook으로 쓴다.
 
   ```python
   class CountMissing(object):
       def __int__(self):
-  		self.added = 0
-
+  		    self.added = 0
+  
       def __call__(self):
           self.added += 1
           return 0
-
-
+  
   counter = CountMissing()
   result = defaultdict(counter, current)
-
+  
   for key, amount in increments:
       result[key] += amount
-```
+  ```
 
 - 간단한 interface와 같은 함수도 있다. (eg. hook을 받는 defaultdict)
 - Python의 함수나 메소드는 first class이다. 즉 다른 표현에 사용되거나 변수로 쓰일 수 있다.
@@ -1576,7 +1574,6 @@ print(data.__dict__)  # {'exists': 5, 'foo': 'Value for foo'}
           print('Called __getattr__(%s)' % name)
           return super().__getattr__(name)  # 무한재귀에 빠지지 않도록 super를 쓴다.
 
-
   data = LoggingLazyDB()
   print(data.exists)  # 5
   print(data.foo)     # Called __getattr__(foo)
@@ -1599,8 +1596,7 @@ print(data.__dict__)  # {'exists': 5, 'foo': 'Value for foo'}
               value = 'Value for %s' % name
               setattr(self, name, value)
               return value
-
-
+  
   data = ValidationDB()
   print(data.exists)  # 5
   print(data.foo)     # Called __getattribute__(foo)
@@ -1617,11 +1613,12 @@ print(data.__dict__)  # {'exists': 5, 'foo': 'Value for foo'}
           if name == 'bad_name':
               raise AttributeError('%s is missing' % name)
           # ...
-
+  
       def __getattribute__(self, name):
           if name == 'bad_name':
               raise AttributeError('%s is missing' % name)
           # ...
+  
   ```
 
   `__getattr__`에서만 제한하면, `__getattribute__`보다 우선순위가 낮으므로 제한되지 않는다.
@@ -1637,10 +1634,10 @@ print(data.__dict__)  # {'exists': 5, 'foo': 'Value for foo'}
           print('Called __setattr__(%s, %s)' % (name, value))
           super().__setattr__(name, value)
 
-
   data = LoggingSavingDB()
   data.foo = 5  # Called __setattr__(foo, 5)
   data.foo = 6  # Called __setattr__(foo, 6)
+
   ```
 
   `setattr(self, name, value)`는 `self.__setattr__(name, value)`와 같다.
@@ -1674,7 +1671,6 @@ print(data.__dict__)  # {'exists': 5, 'foo': 'Value for foo'}
           print((meta, name, bases, class_dict))
           return type.__new__(meta, name, bases, class_dict)
 
-
   class MyClass(object, metaclass=Meta):
       # __metaclass__ = Meta  <-- python2에서는 이렇게 메타클래스를 적용한다.
       stuff = 123
@@ -1702,14 +1698,12 @@ print(data.__dict__)  # {'exists': 5, 'foo': 'Value for foo'}
                   raise ValueError('Polygons need 3+ sides')
           return type.__new__(meta, name, bases, class_dict)
 
-
   class Polygon(object, metaclass=ValidatePolygon):
       sides = None
 
       @classmethod
       def inferior_angles(cls):
           return (cls.sides - 2) * 180
-
 
   class Triangle(Polygon):
       sides = 3
@@ -1820,7 +1814,7 @@ class Field(object):
     def __get__(self, instance, instance_type):
         if instance is None: return self
         return getattr(instance, self.internal_name, '')
-
+    
     def __set__(self, instance, value):
         setattr(instance, self,internal_name, value)
 
@@ -1841,7 +1835,7 @@ print(repr(foo.first_name), foo.__dict__)  # 'Euclid' {'_first_name': 'Euclid'}.
 ```python
 class Field(object):
     pass  # 메타클래스에서 어트리뷰트가 할당되므로 초기화가 필요 없다.
-
+  
 class Meta(type):
     def __new__(meta, name, bases, class_dict):
         for key, value in class_dict.items():
