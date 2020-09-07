@@ -5,4 +5,3 @@ permalink: /about/
 icon: fa-user
 ---
 
-Comming soon.

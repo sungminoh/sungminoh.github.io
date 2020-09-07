@@ -438,8 +438,7 @@ template {
 
 .highlight {
   background-color: #faf9f9;
-  -webkit-border-radius: 3px;
-          border-radius: 3px;
+  border-radius: 3px;
   margin: 0;
 }
 
@@ -447,8 +446,7 @@ template {
   color: #ce887b;
   font-weight: 400;
   border: 1px solid #607D8B;
-  -webkit-border-radius: 3px;
-          border-radius: 3px;
+  border-radius: 3px;
   padding: 0.1rem 0.5rem;
   background-color: #faf9f9;
 }
@@ -853,7 +851,6 @@ table tr:nth-child(even) {
 table thead {
   background: #a9c4d1;
   background: -webkit-gradient(linear, left top, left bottom, from(#bed3dc), color-stop(66%, #b1cad5), to(#A9C4D1));
-  background: -webkit-linear-gradient(top, #bed3dc 0%, #b1cad5 66%, #A9C4D1 100%);
   background: -o-linear-gradient(top, #bed3dc 0%, #b1cad5 66%, #A9C4D1 100%);
   background: linear-gradient(to bottom, #bed3dc 0%, #b1cad5 66%, #A9C4D1 100%);
   border-bottom: 1px solid #8c8c8c;
@@ -875,7 +872,6 @@ table tfoot {
   color: #fff;
   background: #d0e4f5;
   background: -webkit-gradient(linear, left top, left bottom, from(#dcebf7), color-stop(66%, #d4e6f6), to(#D0E4F5));
-  background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
   background: -o-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
   background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
   border-top: 2px solid #444;
@@ -1025,8 +1021,7 @@ table tfoot td {
   width: 100px;
   height: 100px;
   margin: 0 auto 10px;
-  -webkit-border-radius: 100%;
-          border-radius: 100%;
+  border-radius: 100%;
   overflow: hidden;
   background-color: #333030;
 }
@@ -1034,8 +1029,7 @@ table tfoot td {
 .about img {
   width: 100%;
   height: 100%;
-  -webkit-border-radius: 50%;
-          border-radius: 50%;
+  border-radius: 50%;
   -webkit-transition: -webkit-transform 0.35s;
   transition: -webkit-transform 0.35s;
   -o-transition: transform 0.35s;
@@ -1070,8 +1064,7 @@ table tfoot td {
   display: block;
   width: 7px;
   height: 7px;
-  -webkit-border-radius: 100%;
-          border-radius: 100%;
+  border-radius: 100%;
   background-color: #515151;
 }
 
@@ -1198,8 +1191,7 @@ footer .copyright {
       -ms-flex-align: stretch;
           align-items: stretch;
   min-height: 11rem;
-  -webkit-border-radius: 10px;
-          border-radius: 10px;
+  border-radius: 10px;
   overflow: hidden;
   -webkit-transition: all .3s ease;
   -o-transition: all .3s ease;
@@ -1225,8 +1217,7 @@ footer .copyright {
   width: 30%;
   max-width: 100%;
   min-height: 11rem;
-  -webkit-background-size: contain;
-          background-size: contain;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
@@ -1286,6 +1277,10 @@ a.newer-posts:hover {
 }
 
 /* - - - - - - - - - - Post Page Styles - - - - - - - - - - */
+.post-page {
+  width: 100%;
+}
+
 .wrap-content {
   padding: 20px;
 }
@@ -1530,8 +1525,7 @@ a.newer-posts:hover {
   .about img {
     width: 100px;
     height: 100px;
-    -webkit-border-radius: 100%;
-            border-radius: 100%;
+    border-radius: 100%;
     margin-bottom: 10px;
   }
   .content-box {
@@ -1591,8 +1585,7 @@ a.newer-posts:hover {
   width: 100%;
   max-width: 100%;
   margin-bottom: 1.5rem;
-  -webkit-border-radius: 10px;
-          border-radius: 10px;
+  border-radius: 10px;
   -webkit-transition: all .3s ease;
   -o-transition: all .3s ease;
   transition: all .3s ease;

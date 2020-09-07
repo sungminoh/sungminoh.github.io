@@ -14,21 +14,8 @@ gulp.task('jekyll-build', function (done) {
 });
 
 // Rebuild Jekyll and page reload
-gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
+gulp.task('jekyll-rebuild', gulp.series('jekyll-build'), function () {
     browserSync.reload();
-});
-
-// Wait for jekyll-build, then launch the Server
-gulp.task('browser-sync', ['sass', 'img', 'jekyll-build'], function() {
-    browserSync({
-        server: {
-            baseDir: '_site',
-            index: 'index.html'
-        },
-        port: 3000,
-        open: true,
-        notify: false
-    });
 });
 
 // Compile files
@@ -57,6 +44,19 @@ gulp.task('img', function() {
     .pipe(browserSync.reload({stream:true}));
 });
 
+// Wait for jekyll-build, then launch the Server
+gulp.task('browser-sync', gulp.series('sass', 'img', 'jekyll-build', function() {
+    browserSync({
+        server: {
+            baseDir: '_site',
+            index: 'index.html'
+        },
+        port: 3000,
+        open: true,
+        notify: false
+    });
+}));
+
 // Watch scss, html, img files
 gulp.task('watch', function () {
     gulp.watch('assets/css/scss/**/*.scss', ['sass']);
@@ -66,4 +66,6 @@ gulp.task('watch', function () {
 });
 
 //  Default task
-gulp.task('default', ['browser-sync', 'watch']);
+gulp.task('default', gulp.series('browser-sync', 'watch'), function () {
+  console.log("Build Success");
+});

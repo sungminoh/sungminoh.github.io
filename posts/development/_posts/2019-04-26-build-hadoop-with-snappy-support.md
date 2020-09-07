@@ -43,8 +43,9 @@ sc.textFile('text-data.snappy')
 하둡을 빌드할 땐 2.5.0 버전의 protocbuf가 필요하니, 만약 3.5 버전 등 을 사용하고 있다면 잠시 protoc를 unlink하거나 옮겨두어야한다.
 
 ```shell
-# Install open ssl
-brew install openssl
+# Install openssl@1.0
+# brew depreacted 1.0 and 1.1 doesn't work
+brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/64555220bfbf4a25598523c2e4d3a232560eaad7/Formula/openssl.rb -f
 
 # Install make and cmake
 brew install make
@@ -73,12 +74,12 @@ make install
 
 ## Build hadoop native from the source with snappy support
 
-우선 하둡을 다운로드한다.
+우선 하둡을 다운로드한다. (2.7.10 은 안된다)
 
 ```shell
 wget http://apache.claz.org/hadoop/common/hadoop-2.7.7/hadoop-2.7.7-src.tar.gz
-tar xzf hadoop-2.7.3.tar.gz
-cd hadoop-2.7.3-src
+tar xzf hadoop-2.7.7.tar.gz
+cd hadoop-2.7.7-src
 ```
 
 아래와 같이 필요한 환경변수 설정하고 빌드한다.
@@ -86,13 +87,14 @@ cd hadoop-2.7.3-src
 ```shell
 
 # Exports some env variables
+export JAVA_HOME=$(/usr/libexec/java_home)
 export OPENSSL_ROOT_DIR=/usr/local/opt/openssl
 export OPENSSL_LIBRARIES=/usr/local/opt/openssl/lib
 # Build
 mvn package -Pdist,native -DskipTests -Dtar -e
 # Move
-mkdir -p /usr/local/Cellar/hadoop/hadoop-2.7.3
-cp -R hadoop-dist/target/hadoop-2.7.3/lib /usr/local/Cellar/hadoop/hadoop-2.7.3
+mkdir -p /usr/local/Cellar/hadoop/hadoop-2.7.7
+cp -R hadoop-dist/target/hadoop-2.7.7/lib /usr/local/Cellar/hadoop/hadoop-2.7.7
 ```
 
 <br/>
@@ -106,7 +108,7 @@ cp -R hadoop-dist/target/hadoop-2.7.3/lib /usr/local/Cellar/hadoop/hadoop-2.7.3
 `$SPARK_HOME/conf/spark-defaults.conf` 에 다음과 같이 `extraLibraryPath` 설정을 추가한다.
 
 ```shell
-echo 'spark.driver.extraLibraryPath    /usr/local/Cellar/hadoop/hadoop-2.7.3/lib/native' >> $SPARK_HOME/conf/spark-defaults.conf
+echo 'spark.driver.extraLibraryPath    /usr/local/Cellar/hadoop/hadoop-2.7.7/lib/native' >> $SPARK_HOME/conf/spark-defaults.conf
 ```
 
 
