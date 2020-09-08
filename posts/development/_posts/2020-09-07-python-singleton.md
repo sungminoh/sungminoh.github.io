@@ -2,7 +2,7 @@
 layout: post
 title:  "Python 싱글톤 패턴"
 tags: python
-img: effective-python.jpg
+published: true
 ---
 
 # Python thread-safe singleton
@@ -94,7 +94,7 @@ class SingletonABCMeta(ABCMeta):
     _instances = {}
     _locks = {}
 
-    def __new__(mcls, name, bases, class_dict): 
+    def __new__(mcls, name, bases, class_dict):
         module = class_dict['__module__']
         classname = class_dict['__qualname__']
         mcls._locks[f'{module}.{classname}'] = threading.Lock()

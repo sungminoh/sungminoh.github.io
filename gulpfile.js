@@ -51,21 +51,19 @@ gulp.task('browser-sync', gulp.series('sass', 'img', 'jekyll-build', function() 
             baseDir: '_site',
             index: 'index.html'
         },
-        port: 3000,
+        port: 3001,
         open: true,
         notify: false
     });
 }));
 
 // Watch scss, html, img files
-gulp.task('watch', function () {
-    gulp.watch('assets/css/scss/**/*.scss', ['sass']);
-    gulp.watch('assets/js/**/*.js', ['jekyll-rebuild']);
-    gulp.watch('assets/img/**/*', ['img']);
-    gulp.watch(['*.html', '_layouts/*.html', '_includes/*.html', '_pages/*.html', 'posts/*'], ['jekyll-rebuild']);
+gulp.task('update', function () {
+    gulp.watch('assets/css/scss/**/*.scss', gulp.series('sass'));
+    gulp.watch('assets/js/**/*.js', gulp.series('jekyll-rebuild'));
+    gulp.watch('assets/img/**/*', gulp.series('img'));
+    gulp.watch(['*.html', '_layouts/*.html', '_includes/*.html', '_pages/*.html', 'posts/*'], gulp.series('jekyll-rebuild'));
 });
 
 //  Default task
-gulp.task('default', gulp.series('browser-sync', 'watch'), function () {
-  console.log("Build Success");
-});
+gulp.task('default', gulp.series('browser-sync', 'update'));

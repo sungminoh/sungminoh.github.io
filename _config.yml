@@ -9,7 +9,7 @@ site-twitter:  #if your site has a twitter account, enter it here
 
 # Author Settings
 author: Sungmin  # add your name
-author-img: author.png  # add your photo
+author-img: sungmin.png  # add your photo
 about-author: >-
   Developer who is interested in recommendation system, personalization, etc.
 # social-twitter: smoh2044

@@ -80,6 +80,9 @@
     border-radius: 100%;
     overflow: hidden;
     background-color: $dark;
+    img {
+      padding: 0%;
+    }
   }
   img {
     width: 100%;
