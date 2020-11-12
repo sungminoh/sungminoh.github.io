@@ -42,7 +42,7 @@ sudo apt-get install jenkins
 # /etc/hostname
 www.hostname.com
 
-sudo hostnamectl set-hostname my.address.com
+sudo hostnamectl set-hostname www.hostname.com
 ```
 
 
