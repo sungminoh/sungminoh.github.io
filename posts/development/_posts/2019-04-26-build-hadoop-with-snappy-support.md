@@ -40,20 +40,41 @@ sc.textFile('text-data.snappy')
 
 하둡을 빌드하기 위해 필요한 프로그램들을 설치한다.
 
-하둡을 빌드할 땐 2.5.0 버전의 protocbuf가 필요하니, 만약 3.5 버전 등 을 사용하고 있다면 잠시 protoc를 unlink하거나 옮겨두어야한다.
+### make, make, snappy
 
 ```shell
-# Install openssl@1.0
-# brew depreacted 1.0 and 1.1 doesn't work
-brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/64555220bfbf4a25598523c2e4d3a232560eaad7/Formula/openssl.rb -f
-
 # Install make and cmake
 brew install make
 brew install cmake
 
 # Install snappy
 brew install snappy
+```
 
+### OpenSSL
+
+Hadoop 2.7.7 버전만인지 모르겠지만, OpenSSL 1.1 버전을 사용하면 아래와 같은 에러가 발생한다.
+
+```shell
+variable has incomplete type 'HMAC_CTX' (aka 'hmac_ctx_st')
+```
+
+따라서 1.0을 설치하고 잠시 1.0버전을 디폴트로 설정한다.
+
+```shell
+# Install openssl@1.0
+# brew depreacted 1.0
+# brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/64555220bfbf4a25598523c2e4d3a232560eaad7/Formula/openssl.rb -f
+brew install rbenv/tap/openssl@1.0
+rm -rf /usr/local/opt/openssl
+ln -s /usr/local/Cellar/openssl@1.0/1.0.2t /usr/local/opt/openssl
+```
+
+### protobuf
+
+하둡을 빌드할 땐 2.5.0 버전의 protocbuf가 필요하니, 만약 3.5 버전 등 을 사용하고 있다면 잠시 protoc를 unlink하거나 옮겨두어야한다.
+
+```shell
 # Download protobuf-2.5.0 must be 2.5.0
 wget https://github.com/protocolbuffers/protobuf/releases/download/v2.5.0/protobuf-2.5.0.tar.gz
 tar xzf protobuf-2.5.0.tar.gz
@@ -77,15 +98,14 @@ make install
 우선 하둡을 다운로드한다. (2.7.10 은 안된다)
 
 ```shell
-wget http://apache.claz.org/hadoop/common/hadoop-2.7.7/hadoop-2.7.7-src.tar.gz
-tar xzf hadoop-2.7.7.tar.gz
+wget https://archive.apache.org/dist/hadoop/common/hadoop-2.7.7/hadoop-2.7.7-src.tar.gz
+tar xzf hadoop-2.7.7-src.tar.gz
 cd hadoop-2.7.7-src
 ```
 
 아래와 같이 필요한 환경변수 설정하고 빌드한다.
 
 ```shell
-
 # Exports some env variables
 export JAVA_HOME=$(/usr/libexec/java_home)
 export OPENSSL_ROOT_DIR=/usr/local/opt/openssl
