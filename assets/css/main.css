@@ -1112,7 +1112,6 @@ table tfoot td {
   content: "";
   display: block;
   height: 2px;
-  width: -webkit-calc(50% - 48px);
   width: calc(50% - 48px);
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
@@ -1127,7 +1126,6 @@ table tfoot td {
   content: "";
   display: block;
   height: 2px;
-  width: -webkit-calc(50% - 48px);
   width: calc(50% - 48px);
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
@@ -1456,11 +1454,9 @@ a.newer-posts:hover {
 /* - - - - - - - - - - Media Styles - - - - - - - - - - */
 @media only screen and (min-width: 1250px) {
   .wrapper {
-    margin-left: -webkit-calc((100% - 1250px) / 2);
     margin-left: calc((100% - 1250px) / 2);
   }
   .sidebar {
-    left: -webkit-calc((100% - 1250px) / 2);
     left: calc((100% - 1250px) / 2);
   }
 }
@@ -1622,7 +1618,6 @@ a.newer-posts:hover {
 
 .search .search-form input {
   font-family: 'PT Serif', serif;
-  width: -webkit-calc(100% - 45px);
   width: calc(100% - 45px);
   background: none;
   border: none;
