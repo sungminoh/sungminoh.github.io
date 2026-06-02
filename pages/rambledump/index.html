@@ -1,7 +1,43 @@
-<!doctype html><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Rambledump 1.0</title>
-<style>body{font:-apple-system-body;font-family:-apple-system,system-ui;padding:3rem 1.5rem;text-align:center}
-a{display:inline-block;margin-top:2rem;padding:.9rem 2rem;background:#000;color:#fff;border-radius:12px;text-decoration:none;font-weight:600}</style>
-<h1>Rambledump</h1><p>버전 1.0 · Ad Hoc</p>
-<a href="itms-services://?action=download-manifest&amp;url=https://sungminoh.github.io/pages/rambledump/manifest.plist">📲 설치</a>
-<p style="margin-top:2rem;color:#888;font-size:.85rem">등록된 기기에서만 설치됩니다.</p>
+<!doctype html>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<title>Rambledump 1.0 (Ad Hoc)</title>
+<style>
+  body{font-family:-apple-system,system-ui,sans-serif;line-height:1.55;
+       max-width:34rem;margin:0 auto;padding:2.5rem 1.4rem 4rem;color:#111}
+  h1{margin:.2rem 0 .1rem;font-size:1.7rem}
+  .sub{color:#888;font-size:.9rem;margin:0 0 1.6rem}
+  .install{display:inline-block;margin:.4rem 0 2rem;padding:.95rem 2.2rem;
+       background:#000;color:#fff;border-radius:13px;text-decoration:none;font-weight:600}
+  h2{font-size:1.05rem;margin:1.8rem 0 .5rem;border-bottom:1px solid #eee;padding-bottom:.3rem}
+  ul{margin:.3rem 0;padding-left:1.2rem}
+  li{margin:.34rem 0}
+  .tag{display:inline-block;font-size:.72rem;background:#eee;color:#555;
+       border-radius:5px;padding:.05rem .4rem;margin-right:.35rem}
+  .note{color:#999;font-size:.82rem;margin-top:2rem}
+  code{background:#f4f4f4;border-radius:4px;padding:.05rem .3rem;font-size:.85em}
+</style>
+
+<h1>Rambledump</h1>
+<p class="sub">버전 1.0 · 빌드 <code>e80f245</code> · 2026-06-01 · Ad Hoc</p>
+
+<a class="install" href="itms-services://?action=download-manifest&amp;url=https://sungminoh.github.io/pages/rambledump/manifest.plist">📲 설치</a>
+
+<h2>이 빌드에 들어간 것 (Finish Sync Architecture)</h2>
+<ul>
+  <li><span class="tag">A</span><b>즉시·내구성 읽기</b> — 글을 열 때 iCloud 다운로드를 기다리지 않고 캐시에서 즉시 표시. 한 번 본 글은 <b>오프라인에서도</b> 즉시 열림. 첫 탭 무한 스핀 제거(미스 시 30초 bounded).</li>
+  <li><span class="tag">B</span><b>다른 기기 편집 반영</b> — 맥·다른 폰·Files·Obsidian에서 고친 글이 자동 반영. 열어둔 글이면 "외부에서 수정됨 [다시 불러오기]" 배너.</li>
+  <li><span class="tag">C</span><b>충돌 시 데이터 보존(keep-both)</b> — 두 기기가 같은 글을 따로 고치거나, 편집 중 외부 변경이 와도 <b>둘 다 보존</b>하고 충돌 해결 화면 표시. 예전처럼 한쪽이 조용히 사라지지 않음.</li>
+  <li><span class="tag">perf</span><b>런치 흰 화면 단축</b> — iCloud 루트 경로 캐시 → 첫 설치 직후 1회(≤2초)만 흰 화면, 그 다음 실행부터 빠름.</li>
+  <li><span class="tag">perf</span><b>글 열기 빠르게</b> — 충돌 체크 iCloud I/O를 메인 스레드에서 분리 → 모든 글 열기가 더 이상 멈칫하지 않음.</li>
+</ul>
+
+<h2>테스트 체크리스트</h2>
+<ul>
+  <li><b>① 런치</b>: 첫 설치 직후 1회만 흰 화면 잠깐 → 앱 껐다 다시 켜면 <b>흰 화면 거의 없이</b> 빠르게 떠야 함.</li>
+  <li><b>② 글 열기</b>: 같은 글을 두 번째 열 때 즉시 / <b>비행기모드</b> 켜고 이미 본 글 열어도 즉시.</li>
+  <li><b>③ 원격 반영</b>: 폰에서 글 A 열어둔 채, 맥/Files에서 같은 글 수정·저장 → 잠시 후 폰에 <b>"외부에서 수정됨"</b> 배너 → [다시 불러오기]로 새 내용.</li>
+  <li><b>④ 오프라인 분기→재연결</b>: 폰·맥 둘 다 비행기모드 → 같은 글을 서로 다르게 수정·저장 → 둘 다 온라인 복귀 → 그 글 열면 <b>충돌 해결 화면</b>(양쪽 버전, 둘 다 보존).</li>
+  <li><b>⑤ 편집 중 외부 변경</b>: 폰에서 글 편집 중 맥에서 같은 글 수정 → 폰에서 저장 → 내 편집 저장 + 맥 버전은 충돌본으로 보존.</li>
+</ul>
+<p class="note">③④⑤는 실제 iCloud 동기화가 필요한 시나리오입니다. 등록된 기기(성민 iPhone/iPad)에서만 설치됩니다.</p>
