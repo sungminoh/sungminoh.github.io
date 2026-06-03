@@ -1,43 +1,46 @@
-<!doctype html>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta charset="utf-8">
-<title>Rambledump 1.0 (Ad Hoc)</title>
+<!doctype html><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rambledump 1.1 (build 3)</title>
 <style>
-  body{font-family:-apple-system,system-ui,sans-serif;line-height:1.55;
-       max-width:34rem;margin:0 auto;padding:2.5rem 1.4rem 4rem;color:#111}
-  h1{margin:.2rem 0 .1rem;font-size:1.7rem}
-  .sub{color:#888;font-size:.9rem;margin:0 0 1.6rem}
-  .install{display:inline-block;margin:.4rem 0 2rem;padding:.95rem 2.2rem;
-       background:#000;color:#fff;border-radius:13px;text-decoration:none;font-weight:600}
-  h2{font-size:1.05rem;margin:1.8rem 0 .5rem;border-bottom:1px solid #eee;padding-bottom:.3rem}
-  ul{margin:.3rem 0;padding-left:1.2rem}
-  li{margin:.34rem 0}
-  .tag{display:inline-block;font-size:.72rem;background:#eee;color:#555;
-       border-radius:5px;padding:.05rem .4rem;margin-right:.35rem}
-  .note{color:#999;font-size:.82rem;margin-top:2rem}
-  code{background:#f4f4f4;border-radius:4px;padding:.05rem .3rem;font-size:.85em}
+  body{font:-apple-system-body;font-family:-apple-system,system-ui;max-width:640px;margin:0 auto;padding:2.5rem 1.5rem;color:#1a1a1a;line-height:1.55}
+  h1{margin:0 0 .2rem;font-size:1.9rem}
+  .ver{color:#888;font-size:.9rem;margin:0}
+  a.install{display:inline-block;margin:1.6rem 0 .4rem;padding:.9rem 2rem;background:#000;color:#fff;border-radius:12px;text-decoration:none;font-weight:600}
+  .note{color:#888;font-size:.85rem}
+  h2{font-size:1.05rem;margin:2.2rem 0 .5rem;border-bottom:1px solid #eee;padding-bottom:.3rem}
+  ul{margin:.4rem 0;padding-left:1.2rem}
+  li{margin:.35rem 0}
+  code{background:#f4f4f2;padding:.1rem .35rem;border-radius:5px;font-size:.85em}
+  .chk li{list-style:none;margin-left:-1.2rem}
+  .chk li::before{content:"\2610 ";color:#aaa}
 </style>
 
 <h1>Rambledump</h1>
-<p class="sub">버전 1.0 · 빌드 <code>e80f245</code> · 2026-06-01 · Ad Hoc</p>
+<p class="ver">버전 1.1 · 빌드 3 · 2026-06-03 · <code>813374a</code> · Ad Hoc</p>
 
 <a class="install" href="itms-services://?action=download-manifest&amp;url=https://sungminoh.github.io/pages/rambledump/manifest.plist">📲 설치</a>
+<p class="note">등록된 기기에서만 설치됩니다. 기존 앱을 지울 필요 없이 덮어쓰기 설치됩니다.</p>
 
-<h2>이 빌드에 들어간 것 (Finish Sync Architecture)</h2>
+<h2>이 빌드에 들어간 것</h2>
 <ul>
-  <li><span class="tag">A</span><b>즉시·내구성 읽기</b> — 글을 열 때 iCloud 다운로드를 기다리지 않고 캐시에서 즉시 표시. 한 번 본 글은 <b>오프라인에서도</b> 즉시 열림. 첫 탭 무한 스핀 제거(미스 시 30초 bounded).</li>
-  <li><span class="tag">B</span><b>다른 기기 편집 반영</b> — 맥·다른 폰·Files·Obsidian에서 고친 글이 자동 반영. 열어둔 글이면 "외부에서 수정됨 [다시 불러오기]" 배너.</li>
-  <li><span class="tag">C</span><b>충돌 시 데이터 보존(keep-both)</b> — 두 기기가 같은 글을 따로 고치거나, 편집 중 외부 변경이 와도 <b>둘 다 보존</b>하고 충돌 해결 화면 표시. 예전처럼 한쪽이 조용히 사라지지 않음.</li>
-  <li><span class="tag">perf</span><b>런치 흰 화면 단축</b> — iCloud 루트 경로 캐시 → 첫 설치 직후 1회(≤2초)만 흰 화면, 그 다음 실행부터 빠름.</li>
-  <li><span class="tag">perf</span><b>글 열기 빠르게</b> — 충돌 체크 iCloud I/O를 메인 스레드에서 분리 → 모든 글 열기가 더 이상 멈칫하지 않음.</li>
+  <li><b>반응성 제1원칙(INV-PERF)</b> — UI/메인 스레드가 I/O로 멈추지 않도록 전면 수정:
+    <ul>
+      <li><b>앱 첫 실행 흰 화면 제거</b> — 런타임(iCloud 해석·DB 마이그레이션·부트스트랩)을 백그라운드에서 비동기 초기화, 첫 프레임은 즉시 셸 렌더.</li>
+      <li><b>글 열기 지연 제거</b> — 모든 글을 로컬 캐시로 backfill, 열기 경로 파일 읽기를 메인 스레드 밖으로(캐시 우선).</li>
+      <li><b>타이핑 랙 제거</b> — 편집 중 자동저장이 리스트 전역 갱신을 유발하던 경로 차단(편집 종료 시 1회 갱신).</li>
+      <li>Settings/캡처 시트 열기·인덱스 조회의 메인 스레드 파일 I/O 제거, 포그라운드 전체 재색인 → 증분 동기로 전환.</li>
+    </ul>
+  </li>
+  <li><b>동기화 아키텍처 완성</b>(이전 빌드 포함) — 파일(.md)이 원본, 오프라인 우선, 외부 편집(Obsidian/Files) 허용, 충돌 = 양쪽 보존(keep-both, 데이터 손실 0).</li>
 </ul>
 
 <h2>테스트 체크리스트</h2>
-<ul>
-  <li><b>① 런치</b>: 첫 설치 직후 1회만 흰 화면 잠깐 → 앱 껐다 다시 켜면 <b>흰 화면 거의 없이</b> 빠르게 떠야 함.</li>
-  <li><b>② 글 열기</b>: 같은 글을 두 번째 열 때 즉시 / <b>비행기모드</b> 켜고 이미 본 글 열어도 즉시.</li>
-  <li><b>③ 원격 반영</b>: 폰에서 글 A 열어둔 채, 맥/Files에서 같은 글 수정·저장 → 잠시 후 폰에 <b>"외부에서 수정됨"</b> 배너 → [다시 불러오기]로 새 내용.</li>
-  <li><b>④ 오프라인 분기→재연결</b>: 폰·맥 둘 다 비행기모드 → 같은 글을 서로 다르게 수정·저장 → 둘 다 온라인 복귀 → 그 글 열면 <b>충돌 해결 화면</b>(양쪽 버전, 둘 다 보존).</li>
-  <li><b>⑤ 편집 중 외부 변경</b>: 폰에서 글 편집 중 맥에서 같은 글 수정 → 폰에서 저장 → 내 편집 저장 + 맥 버전은 충돌본으로 보존.</li>
+<ul class="chk">
+  <li><b>첫 실행</b>: 앱을 완전히 종료 후 다시 켰을 때 흰 화면이 오래 멈추지 않고 즉시 화면(셸→리스트)이 뜨는가.</li>
+  <li><b>글 열기</b>: 오래된/오프라인 글을 탭했을 때 무한 스피너 없이 바로 열리는가(비행기 모드로도 시도).</li>
+  <li><b>타이핑</b>: 긴 글을 빠르게 입력할 때 키 입력이 끊기거나 뒤늦게 따라오는 랙이 없는가.</li>
+  <li><b>외부 편집</b>: 다른 기기/Files·Obsidian에서 같은 글을 고친 뒤 앱으로 돌아오면 변경이 반영되는가(앱이 백그라운드였다 복귀하는 경우 포함).</li>
+  <li><b>충돌</b>: 오프라인에서 편집·저장 → 그 사이 다른 기기에서 같은 글 편집 → 온라인 복귀 시 양쪽이 모두 보존되는가(데이터 손실 없음).</li>
+  <li><b>Settings/캡처</b>: 설정 화면과 새 캡처 시트를 열 때 멈칫거림(행)이 없는가.</li>
 </ul>
-<p class="note">③④⑤는 실제 iCloud 동기화가 필요한 시나리오입니다. 등록된 기기(성민 iPhone/iPad)에서만 설치됩니다.</p>
+
+<p class="note" style="margin-top:2rem">문제가 보이면 어떤 항목에서 어떤 기기·상황이었는지 알려주세요.</p>
