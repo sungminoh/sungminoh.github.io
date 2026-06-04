@@ -1,5 +1,5 @@
 <!doctype html><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Rambledump 1.1 (build 7)</title>
+<title>Rambledump 1.1 (build 8)</title>
 <style>
   body{font:-apple-system-body;font-family:-apple-system,system-ui;max-width:640px;margin:0 auto;padding:2.5rem 1.5rem;color:#1a1a1a;line-height:1.55}
   h1{margin:0 0 .2rem;font-size:1.9rem}
@@ -15,14 +15,15 @@
 </style>
 
 <h1>Rambledump</h1>
-<p class="ver">버전 1.1 · 빌드 7 · 2026-06-03 · <code>55e07e2</code> · Ad Hoc</p>
+<p class="ver">버전 1.1 · 빌드 8 · 2026-06-04 · <code>b11496f</code> · Ad Hoc</p>
 
 <a class="install" href="itms-services://?action=download-manifest&amp;url=https://sungminoh.github.io/pages/rambledump/manifest.plist">📲 설치</a>
 <p class="note">등록된 기기에서만 설치됩니다. 기존 앱을 지울 필요 없이 덮어쓰기 설치됩니다.</p>
 
 <h2>이 빌드에 들어간 것</h2>
 <ul>
-  <li><b>🆕 빌드 7 — DB 동시 읽기로 멈춤 근본 해결</b>: 앱 켠 직후 캐시 채우기 같은 백그라운드 DB 쓰기 동안 화면 읽기가 그 뒤에 직렬로 막혀 <b>앱이 멈추고 상단 버튼이 이상하게 사라지던</b> 문제를 근본 수정. SQLite를 직렬 큐 → <b>DatabasePool(WAL)</b>로 바꿔 읽기가 쓰기를 안 기다리고 동시에 진행됨. pull-to-refresh 느려짐도 같이 해소. (빌드 5에서 임시로 시도하다 생긴 회귀와 달리 이번엔 독립 코드 리뷰 + 627개 테스트 통과 후 배포.)</li>
+  <li><b>🆕 빌드 8 — "글 계속 열면 멈춤" 근본 해결(완성)</b>: 글을 몇 번 열다 보면 앱 전체가 멈추고(글 스피너·풀다운·상단 버튼 윤곽만) 무한 대기하던 문제를 뿌리째 수정. <b>원인</b>: 화면(리스트·글 열기·<b>검색</b>·새로고침)의 DB 읽기가 메인 스레드에서 실행됐는데, DB 읽기 풀 슬롯(5개)이 백그라운드 작업으로 다 차면 메인 스레드가 슬롯을 무한 대기 → 앱 전체 정지. <b>수정</b>: 모든 화면 DB 읽기를 메인 밖(비동기)으로 옮기고, "메인에서 DB 읽기 금지" 가드를 코드에 영구 설치해 다시는 새 경로가 새지 않게 함. (빌드 7은 검색 경로를 빠뜨려 미완성 → 독립 리뷰가 적발 → 이번에 완성. 636개 테스트 + 가드로 검증 후 배포.)</li>
+  <li><b>빌드 7 — DB 동시 읽기(DatabasePool/WAL)</b>: SQLite를 직렬 큐 → DatabasePool로 바꿔 읽기가 쓰기를 안 기다림. (빌드 8과 함께 작동.)</li>
   <li><b>빌드 4 — 재오픈 무한 스피너 수정</b>: 글을 열어 편집했다가 뒤로 갔다 같은 글을 다시 누르면 무한 스피너에 걸리던 버그 수정(죽은 로드 상태가 재시도되지 않던 근본 원인 + 화면 재진입 시 로드 재발화). 코드 리뷰 지적(메인 스레드 잔여 I/O·검증 강화)도 함께 반영.</li>
   <li><b>반응성 제1원칙(INV-PERF)</b> — UI/메인 스레드가 I/O로 멈추지 않도록 전면 수정:
     <ul>
