@@ -1,5 +1,5 @@
 <!doctype html><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Rambledump 1.1 (15)</title>
+<title>Rambledump 1.1 (16)</title>
 <style>
 body{font-family:-apple-system,system-ui;padding:2.5rem 1.5rem;max-width:34rem;margin:0 auto;color:#111}
 h1{margin:0 0 .25rem}
@@ -10,11 +10,19 @@ ul{margin:.25rem 0;padding-left:1.2rem;color:#333;font-size:.9rem;line-height:1.
 .note{margin-top:1.75rem;color:#888;font-size:.8rem;line-height:1.5}
 </style>
 <h1>Rambledump</h1>
-<p class="ver">버전 <b>1.1 (build 15)</b> · Ad Hoc · 2026-06-09</p>
+<p class="ver">버전 <b>1.1 (build 16)</b> · Ad Hoc · 2026-06-09</p>
 
 <a class="install" href="itms-services://?action=download-manifest&amp;url=https://sungminoh.github.io/pages/rambledump/manifest.plist">📲 설치 / 업데이트</a>
 
-<h2>이번 빌드 (build 15) — AI 모델 관리 재설계 (D100)</h2>
+<h2>이번 빌드 (build 16) — 내부 구조 리팩토링 (동작 변화 없음)</h2>
+<ul>
+  <li><b>RootView 분해</b> — 화면별 뷰(undo 스낵바·타임라인·상세 로더)를 별도 파일로 분리</li>
+  <li><b>상세 화면 분해</b> — EntryDetailView에서 편집 화면·연관 entry 시트·저장 인디케이터를 떼어냄</li>
+  <li>UI·동작 변화 <b>없음</b> — 코드 구조만 정리한 <b>실기기 회귀 확인용</b> 빌드</li>
+  <li>macOS 빌드 + iOS 빌드 + 전체 유닛 테스트(711개) 통과</li>
+</ul>
+
+<h2>지난 빌드 (build 15) — AI 모델 관리 재설계 (D100)</h2>
 <ul>
   <li><b>기능별 모델 선택</b> — 분류기에 provider + 모델을 직접 골라 바인딩</li>
   <li><b>라이브 모델 목록</b> — provider에서 실제 사용 가능한 모델만 불러옴 (모델 종료로 인한 먹통 방지)</li>
