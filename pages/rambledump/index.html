@@ -1,69 +1,28 @@
 <!doctype html><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Rambledump 1.1 (build 14)</title>
+<title>Rambledump 1.1 (15)</title>
 <style>
-  body{font:-apple-system-body;font-family:-apple-system,system-ui;max-width:640px;margin:0 auto;padding:2.5rem 1.5rem;color:#1a1a1a;line-height:1.55}
-  h1{margin:0 0 .2rem;font-size:1.9rem}
-  .ver{color:#888;font-size:.9rem;margin:0}
-  a.install{display:inline-block;margin:1.6rem 0 .4rem;padding:.9rem 2rem;background:#000;color:#fff;border-radius:12px;text-decoration:none;font-weight:600}
-  .note{color:#888;font-size:.85rem}
-  h2{font-size:1.05rem;margin:2.2rem 0 .5rem;border-bottom:1px solid #eee;padding-bottom:.3rem}
-  ul{margin:.4rem 0;padding-left:1.2rem}
-  li{margin:.35rem 0}
-  code{background:#f4f4f2;padding:.1rem .35rem;border-radius:5px;font-size:.85em}
-  .chk li{list-style:none;margin-left:-1.2rem}
-  .chk li::before{content:"\2610 ";color:#aaa}
+body{font-family:-apple-system,system-ui;padding:2.5rem 1.5rem;max-width:34rem;margin:0 auto;color:#111}
+h1{margin:0 0 .25rem}
+.ver{color:#666;font-size:.95rem}
+a.install{display:block;margin:1.75rem 0;padding:1rem;background:#000;color:#fff;border-radius:14px;text-decoration:none;font-weight:700;text-align:center;font-size:1.05rem}
+h2{font-size:.95rem;margin:1.5rem 0 .5rem;color:#333}
+ul{margin:.25rem 0;padding-left:1.2rem;color:#333;font-size:.9rem;line-height:1.55}
+.note{margin-top:1.75rem;color:#888;font-size:.8rem;line-height:1.5}
 </style>
-
 <h1>Rambledump</h1>
-<p class="ver">버전 1.1 · 빌드 14 · 2026-06-09 · <code>8368bce</code> · Ad Hoc</p>
-<p class="note" style="color:#b25000"><b>이 빌드는 "AI 분류 복구 + 설정 버그 수정 + 대규모 정리"입니다.</b> Gemini 분류가 모델 종료(2.0-flash)로 전부 실패하던 것을 2.5-flash로 되살렸고, BYOK 설정에서 "Test stored key"가 "Remove key"를 잘못 발동하던 버그를 고쳤습니다. 내부적으로 중복 코드 통합·파일 쓰기 단일화·상세 화면 분해 등 대규모 리팩토링(동작 동일)과 10일간 깨져 있던 CI 파이프라인 복구가 포함됩니다.</p>
+<p class="ver">버전 <b>1.1 (build 15)</b> · Ad Hoc · 2026-06-09</p>
 
-<a class="install" href="itms-services://?action=download-manifest&amp;url=https://sungminoh.github.io/pages/rambledump/manifest.plist">📲 설치</a>
-<p class="note">등록된 기기에서만 설치됩니다. 기존 앱을 지울 필요 없이 덮어쓰기 설치됩니다.</p>
+<a class="install" href="itms-services://?action=download-manifest&amp;url=https://sungminoh.github.io/pages/rambledump/manifest.plist">📲 설치 / 업데이트</a>
 
-<h2>이 빌드에 들어간 것</h2>
+<h2>이번 빌드 (build 15) — AI 모델 관리 재설계 (D100)</h2>
 <ul>
-  <li><b>🆕 빌드 14 — AI 분류 복구 + 설정 버그 + 대규모 정리</b>:
-    <ul>
-      <li><b>AI 분류(BYOK·Gemini) 복구</b> — Google이 <code>gemini-2.0-flash</code> 를 종료해 분류가 404로 전부 실패하던 것을 <code>gemini-2.5-flash</code> 로 교체. 2.5-flash의 기본 "thinking"이 출력 토큰을 다 써서 빈 응답이 오던 것도 thinking 비활성으로 해결 → 모드/태그가 다시 채워집니다.</li>
-      <li><b>BYOK 설정 버그 수정</b> — "Test stored key"를 눌렀는데 "Remove key"(삭제 확인창)가 뜨던 버그 수정. 이제 각 버튼이 독립적으로 눌립니다.</li>
-      <li><b>충돌 보존 경로 버그 수정(데이터 손실 방지)</b> — 특정 경로(symlink) 조건에서 충돌 사본 위치가 깨져 충돌이 안 보일 수 있던 잠재 위험 제거.</li>
-      <li><b>대규모 내부 리팩토링</b>(동작 동일) — LLM 어댑터·충돌 경로·첨부 저장 중복 통합, 파일 원자적 쓰기 단일화, 상세 화면 구조 분해.</li>
-      <li><b>빌드/CI 파이프라인 복구</b> — 약 10일간 깨져 있던 컴파일·테스트 파이프라인 정상화. 687개 단위 테스트 통과.</li>
-    </ul>
-  </li>
-  <li><b>빌드 11 — "글 계속 열면 18초 멈춤" 근본 수정(읽기-동시성)</b>: 기기 자가진단이 범인을 정확히 잡음 — 앱 켠 직후 백그라운드 DB 폭주(전-글 캐시 채우기 + 검색 재색인 + 정합성 점검 + 워커)가 DB 읽기 슬롯을 독점해 화면 읽기가 <b>17~19초</b> 대기. 수정: 백그라운드 읽기 동시성 상한(화면 읽기에 슬롯 양보) + 대량 쓰기 청크화 + 런치 작업 순차·지연 + 슬롯 5→8 + 글-열기 읽기는 제한 우회. (데드락 없음 — 동시성 변경 독립 리뷰 통과. 662 테스트 + 진단 탑재.)</li>
-  <li><b>빌드 9 — 편집 정합성 근본 수정(편집 반영·가짜 충돌·해결버튼)</b>: ① <b>편집하고 뒤로 가면 리스트에 바로 반영</b>(저장을 flush한 뒤 새로고침). ② <b>자기 편집인데 다시 열면 conflict 뜨던 가짜 충돌 제거</b> — 충돌 기준을 "UI 타이머값"이 아니라 "이 기기가 마지막으로 디스크에 쓴 본문"으로 바로잡음(진짜 외부 편집은 여전히 keep-both로 보존). ③ 그 결과 <b>해결 버튼도 정상 동작</b>. + 편집 중 앱을 백그라운드로 보내도 마지막 타이핑 보존. (이 세 가지를 "되돌리면 시끄럽게 실패하는" 수용 테스트로 박제 후 독립 리뷰 통과 → 배포.)</li>
-  <li><b>빌드 8 — "글 계속 열면 멈춤" 근본 해결(완성)</b>: 글을 몇 번 열다 보면 앱 전체가 멈추고(글 스피너·풀다운·상단 버튼 윤곽만) 무한 대기하던 문제를 뿌리째 수정. <b>원인</b>: 화면(리스트·글 열기·<b>검색</b>·새로고침)의 DB 읽기가 메인 스레드에서 실행됐는데, DB 읽기 풀 슬롯(5개)이 백그라운드 작업으로 다 차면 메인 스레드가 슬롯을 무한 대기 → 앱 전체 정지. <b>수정</b>: 모든 화면 DB 읽기를 메인 밖(비동기)으로 옮기고, "메인에서 DB 읽기 금지" 가드를 코드에 영구 설치해 다시는 새 경로가 새지 않게 함. (빌드 7은 검색 경로를 빠뜨려 미완성 → 독립 리뷰가 적발 → 이번에 완성. 636개 테스트 + 가드로 검증 후 배포.)</li>
-  <li><b>빌드 7 — DB 동시 읽기(DatabasePool/WAL)</b>: SQLite를 직렬 큐 → DatabasePool로 바꿔 읽기가 쓰기를 안 기다림. (빌드 8과 함께 작동.)</li>
-  <li><b>빌드 4 — 재오픈 무한 스피너 수정</b>: 글을 열어 편집했다가 뒤로 갔다 같은 글을 다시 누르면 무한 스피너에 걸리던 버그 수정(죽은 로드 상태가 재시도되지 않던 근본 원인 + 화면 재진입 시 로드 재발화). 코드 리뷰 지적(메인 스레드 잔여 I/O·검증 강화)도 함께 반영.</li>
-  <li><b>반응성 제1원칙(INV-PERF)</b> — UI/메인 스레드가 I/O로 멈추지 않도록 전면 수정:
-    <ul>
-      <li><b>앱 첫 실행 흰 화면 제거</b> — 런타임(iCloud 해석·DB 마이그레이션·부트스트랩)을 백그라운드에서 비동기 초기화, 첫 프레임은 즉시 셸 렌더.</li>
-      <li><b>글 열기 지연 제거</b> — 모든 글을 로컬 캐시로 backfill, 열기 경로 파일 읽기를 메인 스레드 밖으로(캐시 우선).</li>
-      <li><b>타이핑 랙 제거</b> — 편집 중 자동저장이 리스트 전역 갱신을 유발하던 경로 차단(편집 종료 시 1회 갱신).</li>
-      <li>Settings/캡처 시트 열기·인덱스 조회의 메인 스레드 파일 I/O 제거, 포그라운드 전체 재색인 → 증분 동기로 전환.</li>
-    </ul>
-  </li>
-  <li><b>동기화 아키텍처 완성</b>(이전 빌드 포함) — 파일(.md)이 원본, 오프라인 우선, 외부 편집(Obsidian/Files) 허용, 충돌 = 양쪽 보존(keep-both, 데이터 손실 0).</li>
+  <li><b>기능별 모델 선택</b> — 분류기에 provider + 모델을 직접 골라 바인딩</li>
+  <li><b>라이브 모델 목록</b> — provider에서 실제 사용 가능한 모델만 불러옴 (모델 종료로 인한 먹통 방지)</li>
+  <li><b>여러 키 동시 관리</b> — provider별 키 보관·교체·삭제, 어느 provider에 키가 있는지 한눈에</li>
+  <li><b>실패 사유 표시</b> — "server error" 대신 실제 원인(모델 없음, 토큰 초과 등)을 배너에 표시</li>
+  <li><b>저장 시 검증</b> — 고른 모델을 ping으로 확인한 뒤에만 적용</li>
+  <li>Gemini <code>gemini-2.5-flash</code> + thinking 비활성화 + Test 버튼 hit-testing 수정 포함</li>
 </ul>
 
-<h2>테스트 체크리스트</h2>
-<ul class="chk">
-  <li><b>AI 분류</b>(빌드 14 핵심): 새 글을 캡처한 뒤 잠시 후 모드/태그가 자동으로 붙는가(Gemini 키 설정 시). 이전 빌드에서 분류 안 되던 글도 다시 시도되는가.</li>
-  <li><b>BYOK 설정</b>(빌드 14 핵심): 설정 → API 키에서 "Test stored key"를 누르면 키 테스트가 실행되는가(삭제 확인창이 잘못 뜨지 않는가). "Remove key"는 따로 동작하는가.</li>
-  <li><b>상세 화면</b>(빌드 14 분해): 첨부 썸네일·충돌/외부변경 배너·비슷한 글/시간축 시트가 정상 표시·동작하는가.</li>
-  <li><b>편집 반영</b>(빌드 9 핵심): 글 편집 → 뒤로 → 리스트에 <b>바뀐 내용/미리보기가 즉시 반영</b>되는가.</li>
-  <li><b>가짜 충돌 없음</b>(빌드 9 핵심): 내가 편집만 한 글을 다시 열었을 때 <b>conflict 화면이 뜨지 않는가</b>(나 혼자 편집인데 충돌 X).</li>
-  <li><b>해결 버튼 동작</b>: (진짜 외부 편집으로) conflict가 떴을 때 keep-both/merge 버튼이 <b>실제로 동작</b>해 충돌이 사라지는가.</li>
-  <li><b>첫 실행</b>: 앱을 완전히 종료 후 다시 켰을 때 흰 화면이 오래 멈추지 않고 즉시 화면(셸→리스트)이 뜨는가.</li>
-  <li><b>글 열기</b>: 오래된/오프라인 글을 탭했을 때 무한 스피너 없이 바로 열리는가(비행기 모드로도 시도).</li>
-  <li><b>편집→뒤로→재오픈</b>(빌드 4 수정 핵심): 글 열기 → 편집 → 뒤로 → 같은 글 다시 탭 → 무한 스피너 없이 바로 열리는가(여러 번 반복).</li>
-  <li><b>당겨서 새로고침</b>(빌드 5 수정 핵심): 리스트를 아래로 당겨 새로고침을 반복해도(특히 앱 켠 직후) 느려지거나 멈추지 않는가.</li>
-  <li><b>타이핑</b>: 긴 글을 빠르게 입력할 때 키 입력이 끊기거나 뒤늦게 따라오는 랙이 없는가.</li>
-  <li><b>외부 편집</b>: 다른 기기/Files·Obsidian에서 같은 글을 고친 뒤 앱으로 돌아오면 변경이 반영되는가(앱이 백그라운드였다 복귀하는 경우 포함).</li>
-  <li><b>충돌</b>: 오프라인에서 편집·저장 → 그 사이 다른 기기에서 같은 글 편집 → 온라인 복귀 시 양쪽이 모두 보존되는가(데이터 손실 없음).</li>
-  <li><b>Settings/캡처</b>: 설정 화면과 새 캡처 시트를 열 때 멈칫거림(행)이 없는가.</li>
-</ul>
-
-<p class="note" style="margin-top:2rem">문제가 보이면 어떤 항목에서 어떤 기기·상황이었는지 알려주세요.</p>
+<p class="note">등록된 기기에서만 설치됩니다. 설치 후 앱을 완전히 종료했다가 다시 실행하세요.<br>
+설정 → Classifier 에서: provider 키 저장 → 모델 선택 → <b>Save &amp; Validate</b>.</p>
