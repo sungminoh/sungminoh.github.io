@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Rambledump — Privacy Policy</title>
+<style>
+  :root{color-scheme:light dark;--fg:#111;--dim:#666;--rule:#e5e5e5;--bg:#fff;--accent:#111}
+  @media (prefers-color-scheme:dark){:root{--fg:#ececec;--dim:#9a9a9a;--rule:#2a2a2a;--bg:#131313;--accent:#ececec}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);
+       font-family:-apple-system,BlinkMacSystemFont,system-ui,"Segoe UI",sans-serif;
+       font-size:16px;line-height:1.65;-webkit-text-size-adjust:100%}
+  main{max-width:40rem;margin:0 auto;padding:3rem 1.25rem 5rem}
+  h1{font-size:1.6rem;line-height:1.25;margin:0 0 .4rem;letter-spacing:-.01em}
+  .meta{color:var(--dim);font-size:.85rem;margin:0 0 .5rem}
+  .langs{font-size:.85rem;margin:0 0 2.5rem}
+  .langs a{color:var(--dim)}
+  h2{font-size:1.05rem;margin:2.75rem 0 .75rem;letter-spacing:-.005em;
+     padding-top:1.5rem;border-top:1px solid var(--rule)}
+  h3{font-size:.95rem;margin:1.75rem 0 .5rem}
+  p,li{color:var(--fg)}
+  ul{padding-left:1.15rem;margin:.6rem 0}
+  li{margin:.4rem 0}
+  a{color:var(--accent)}
+  .lede{font-size:1.02rem}
+  .box{border:1px solid var(--rule);border-radius:12px;padding:1rem 1.15rem;margin:1.25rem 0}
+  .box p:first-child{margin-top:0}
+  .box p:last-child{margin-bottom:0}
+  table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.9rem;display:block;overflow-x:auto}
+  th,td{text-align:left;padding:.55rem .6rem;border-bottom:1px solid var(--rule);vertical-align:top}
+  th{font-weight:600;white-space:nowrap}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em}
+  footer{margin-top:3.5rem;padding-top:1.5rem;border-top:1px solid var(--rule);
+         color:var(--dim);font-size:.85rem}
+  hr.lang{margin:5rem 0 0;border:0;border-top:1px solid var(--rule)}
+</style>
+
+<main>
+
+<h1>Rambledump — Privacy Policy</h1>
+<p class="meta">Effective 22 September 2026 · Developer: Sungmin Oh</p>
+<p class="langs"><a href="#ko">한국어로 보기 ↓</a></p>
+
+<p class="lede"><strong>Rambledump does not collect your data.</strong> There is no account,
+no analytics, no tracking, no advertising, and no crash-reporting service. Your notes are
+files in <em>your own</em> iCloud Drive and on your device. The developer has no server and
+no way to read them.</p>
+
+<h2>1. Where your data lives</h2>
+<table>
+  <tr><th>What</th><th>Where</th></tr>
+  <tr><td>Notes (Markdown) and image attachments</td>
+      <td>Your iCloud Drive, in a folder named <em>Rambledump</em> that you can open in
+          the Files app. If iCloud is unavailable, they are kept locally on the device.</td></tr>
+  <tr><td>AI chat conversations</td>
+      <td>A local database on your device, and — when chat sync is on — your
+          <strong>private</strong> iCloud (CloudKit) database, so your devices share the
+          same conversations. Private CloudKit data is tied to your Apple Account and is
+          not accessible to the developer.</td></tr>
+  <tr><td>Search index, tags, previews</td>
+      <td>A local database on your device. It is derived from your notes and can be rebuilt
+          from them.</td></tr>
+  <tr><td>App settings</td>
+      <td>On your device, with a defined subset mirrored across your devices through
+          iCloud Key-Value Storage. Note text is never stored there.</td></tr>
+  <tr><td>AI provider API keys</td>
+      <td>The device Keychain. By default they never leave the device and are excluded
+          from backups. You may optionally turn on iCloud Keychain sync for them.</td></tr>
+</table>
+
+<h2>2. What leaves your device</h2>
+
+<h3>2.1 AI features</h3>
+<p>Rambledump uses AI to classify notes, tidy text, and answer questions about your
+archive. The default provider is <strong>Apple Intelligence, which runs on your device</strong>;
+in that mode your notes are not sent to any AI company. (Apple may process some requests
+on Apple's Private Cloud Compute; you can turn that behaviour off in the app.)</p>
+
+<p>The other three providers are <strong>opt-in and require your own API key</strong>. If
+you do not enter a key, nothing is ever sent to them. When you do enter a key and select
+a provider, the app sends requests <em>directly from your device</em> to that company —
+never through any server of the developer:</p>
+
+<table>
+  <tr><th>Provider</th><th>Endpoint</th></tr>
+  <tr><td>OpenAI</td><td><code>api.openai.com</code></td></tr>
+  <tr><td>Anthropic</td><td><code>api.anthropic.com</code></td></tr>
+  <tr><td>Google Gemini</td><td><code>generativelanguage.googleapis.com</code></td></tr>
+</table>
+
+<p>What is sent depends on the feature:</p>
+<ul>
+  <li><strong>Classification</strong> — the text of the note being classified, plus the
+      list of tags already used in your archive.</li>
+  <li><strong>Tidy</strong> — the text of the note you asked to tidy, verbatim.</li>
+  <li><strong>Chat</strong> — your messages, and the content of notes the assistant
+      retrieves while answering. The assistant has read-only access to your archive; it
+      cannot modify or delete notes.</li>
+</ul>
+<p>Technical metadata stored at the top of each note (timestamps, device name, schema
+fields) is removed before the text is sent.</p>
+
+<div class="box">
+  <p><strong>Retention by the AI provider.</strong> For OpenAI, the app explicitly
+  requests that the exchange not be stored (<code>store: false</code>). Anthropic and
+  Google do not offer an equivalent per-request option, so their handling of the data
+  follows the terms of the account whose API key you supplied. Your relationship for
+  those requests is with that company; please review their privacy policies.</p>
+</div>
+
+<h3>2.2 Link previews</h3>
+<p><strong>Off by default.</strong> If you turn it on, the app fetches the title and
+preview image of web links you write in your notes, which means contacting the website
+you linked to. No other information about you is sent.</p>
+
+<h3>2.3 Apple services</h3>
+<p>iCloud Drive, CloudKit and iCloud Keychain are provided by Apple under
+<a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>. Your data in
+them belongs to your Apple Account.</p>
+
+<h2>3. What the developer receives</h2>
+<p><strong>Nothing.</strong> There is no backend server, no telemetry, no analytics SDK,
+and no third-party tracking or crash-reporting library in the app. Diagnostic logs stay
+on your device, are written through Apple's system logging, and deliberately exclude the
+content of your notes.</p>
+<p>If you email support, the developer sees only what you choose to include in that email.</p>
+
+<h2>4. Device permissions</h2>
+<ul>
+  <li><strong>Camera / Photos</strong> — only to attach an image to a note, when you ask.
+      Attachments are stored with your notes.</li>
+  <li><strong>Clipboard</strong> — optional. Off by default, and even when enabled the app
+      asks before using clipboard contents.</li>
+  <li><strong>Siri / Shortcuts</strong> — to capture a note by voice command.</li>
+  <li><strong>Share extension</strong> — when you share a web page to Rambledump, the page
+      text is extracted on your device to create the note.</li>
+</ul>
+<p>Rambledump does <strong>not</strong> use location, the microphone, contacts, calendars,
+or health data.</p>
+
+<h2>5. Deleting your data</h2>
+<ul>
+  <li><strong>Notes</strong> — deleting moves a note to a <code>.trash</code> folder inside
+      your archive, where it remains until you empty the trash in the app. Nothing is
+      removed automatically.</li>
+  <li><strong>Chats</strong> — you can delete a single conversation or all conversations.
+      Deletions propagate to your other devices.</li>
+  <li><strong>API keys</strong> — clearing a key removes it from the Keychain.</li>
+  <li><strong>Everything</strong> — deleting the app removes its local database; your notes
+      remain in iCloud Drive until you delete the <em>Rambledump</em> folder yourself,
+      because they are your files.</li>
+</ul>
+
+<h2>6. Children</h2>
+<p>Rambledump is not directed to children and collects no data from anyone.</p>
+
+<h2>7. Changes</h2>
+<p>If this policy changes, the revised version will be posted at this address with a new
+effective date.</p>
+
+<h2>8. Contact</h2>
+<p><a href="mailto:smoh2044@gmail.com">smoh2044@gmail.com</a></p>
+
+
+<hr class="lang">
+
+<h1 id="ko" style="margin-top:3rem">Rambledump — 개인정보처리방침</h1>
+<p class="meta">시행일 2026년 9월 22일 · 개발자: 오성민</p>
+
+<p class="lede"><strong>Rambledump는 사용자의 데이터를 수집하지 않습니다.</strong> 계정도,
+분석 도구도, 추적도, 광고도, 크래시 리포팅 서비스도 없습니다. 작성한 노트는
+<em>사용자 본인의</em> iCloud Drive와 기기에 있는 파일이며, 개발자는 서버를 두고 있지
+않으므로 이를 읽을 방법이 없습니다.</p>
+
+<h2>1. 데이터가 저장되는 곳</h2>
+<table>
+  <tr><th>무엇</th><th>어디</th></tr>
+  <tr><td>노트(마크다운)와 이미지 첨부</td>
+      <td>사용자의 iCloud Drive 안 <em>Rambledump</em> 폴더. 파일 앱에서 직접 열어볼 수
+          있습니다. iCloud를 쓸 수 없으면 기기에만 저장됩니다.</td></tr>
+  <tr><td>AI 대화</td>
+      <td>기기의 로컬 데이터베이스, 그리고 대화 동기화가 켜져 있으면 사용자의
+          <strong>개인</strong> iCloud(CloudKit) 데이터베이스. 여러 기기가 같은 대화를
+          공유하기 위한 것이며, 개인 CloudKit 데이터는 사용자의 Apple 계정에 속하고
+          개발자는 접근할 수 없습니다.</td></tr>
+  <tr><td>검색 색인 · 태그 · 미리보기</td>
+      <td>기기의 로컬 데이터베이스. 노트에서 파생된 캐시라 언제든 다시 만들 수 있습니다.</td></tr>
+  <tr><td>앱 설정</td>
+      <td>기기에 저장되며, 정해진 일부 항목만 iCloud 키-값 저장소로 기기 간 동기화됩니다.
+          노트 본문은 이곳에 저장되지 않습니다.</td></tr>
+  <tr><td>AI 제공사 API 키</td>
+      <td>기기의 키체인. 기본 설정에서는 기기를 벗어나지 않으며 백업에서도 제외됩니다.
+          원하면 iCloud 키체인 동기화를 켤 수 있습니다.</td></tr>
+</table>
+
+<h2>2. 기기 밖으로 나가는 것</h2>
+
+<h3>2.1 AI 기능</h3>
+<p>Rambledump는 노트 분류, 글 다듬기, 아카이브에 대한 질문 답변에 AI를 사용합니다.
+기본 제공자는 <strong>기기에서 실행되는 Apple Intelligence</strong>이며, 이 상태에서는
+노트가 어떤 AI 회사로도 전송되지 않습니다. (Apple이 일부 요청을 Apple의 프라이빗 클라우드
+컴퓨팅에서 처리할 수 있으며, 앱에서 끌 수 있습니다.)</p>
+
+<p>나머지 세 곳은 <strong>선택 사항이며 사용자 본인의 API 키가 필요합니다.</strong> 키를
+넣지 않으면 아무것도 전송되지 않습니다. 키를 넣고 제공자를 선택하면, 앱은
+<em>기기에서 해당 회사로 직접</em> 요청을 보냅니다. 개발자의 서버를 거치지 않습니다.</p>
+
+<table>
+  <tr><th>제공자</th><th>엔드포인트</th></tr>
+  <tr><td>OpenAI</td><td><code>api.openai.com</code></td></tr>
+  <tr><td>Anthropic</td><td><code>api.anthropic.com</code></td></tr>
+  <tr><td>Google Gemini</td><td><code>generativelanguage.googleapis.com</code></td></tr>
+</table>
+
+<p>전송되는 내용은 기능에 따라 다릅니다.</p>
+<ul>
+  <li><strong>분류</strong> — 분류 대상 노트의 본문과, 아카이브에서 이미 쓰인 태그 목록.</li>
+  <li><strong>다듬기</strong> — 다듬기를 요청한 노트의 본문 전체.</li>
+  <li><strong>대화</strong> — 사용자가 입력한 메시지와, 답변 과정에서 어시스턴트가 찾아본
+      노트의 내용. 어시스턴트는 아카이브를 읽기만 할 수 있고 수정하거나 삭제할 수 없습니다.</li>
+</ul>
+<p>각 노트 상단의 기술 메타데이터(시각, 기기 이름, 스키마 필드)는 전송 전에 제거됩니다.</p>
+
+<div class="box">
+  <p><strong>AI 제공사의 데이터 보존.</strong> OpenAI에는 해당 요청을 저장하지 말 것을
+  명시적으로 요청합니다(<code>store: false</code>). Anthropic과 Google은 요청 단위의
+  동등한 옵션을 제공하지 않으므로, 데이터 처리 방식은 사용자가 제공한 API 키가 속한
+  계정의 약관을 따릅니다. 이 요청들에 관한 관계는 사용자와 해당 회사 사이에 성립하므로,
+  각 사의 개인정보처리방침을 확인하시기 바랍니다.</p>
+</div>
+
+<h3>2.2 링크 미리보기</h3>
+<p><strong>기본값은 꺼짐입니다.</strong> 켜면 노트에 적은 웹 링크의 제목과 미리보기
+이미지를 가져오며, 이를 위해 해당 웹사이트에 접속합니다. 사용자에 관한 다른 정보는
+전송되지 않습니다.</p>
+
+<h3>2.3 Apple 서비스</h3>
+<p>iCloud Drive, CloudKit, iCloud 키체인은 Apple이 제공하며
+<a href="https://www.apple.com/legal/privacy/">Apple 개인정보처리방침</a>을 따릅니다.
+이 서비스들에 저장된 데이터는 사용자의 Apple 계정에 속합니다.</p>
+
+<h2>3. 개발자가 받는 것</h2>
+<p><strong>없습니다.</strong> 백엔드 서버도, 텔레메트리도, 분석 SDK도, 서드파티 추적·크래시
+리포팅 라이브러리도 앱에 없습니다. 진단 로그는 기기에 남으며 Apple 시스템 로깅을 통해
+기록되고, 노트 내용은 의도적으로 제외합니다.</p>
+<p>문의 메일을 보내면 개발자는 그 메일에 직접 담은 내용만 보게 됩니다.</p>
+
+<h2>4. 기기 권한</h2>
+<ul>
+  <li><strong>카메라 · 사진</strong> — 사용자가 요청할 때 노트에 이미지를 첨부하기 위해서만
+      사용합니다. 첨부 파일은 노트와 함께 저장됩니다.</li>
+  <li><strong>클립보드</strong> — 선택 사항이며 기본은 꺼짐. 켜 두어도 사용 전에 매번
+      확인을 받습니다.</li>
+  <li><strong>Siri · 단축어</strong> — 음성 명령으로 노트를 남기기 위해 사용합니다.</li>
+  <li><strong>공유 확장</strong> — 웹페이지를 Rambledump로 공유하면 기기 안에서 페이지
+      텍스트를 추출해 노트를 만듭니다.</li>
+</ul>
+<p>위치, 마이크, 연락처, 캘린더, 건강 데이터는 <strong>사용하지 않습니다.</strong></p>
+
+<h2>5. 데이터 삭제</h2>
+<ul>
+  <li><strong>노트</strong> — 삭제하면 아카이브 안 <code>.trash</code> 폴더로 옮겨지며,
+      앱에서 휴지통을 비울 때까지 남아 있습니다. 자동으로 지워지지 않습니다.</li>
+  <li><strong>대화</strong> — 개별 대화 또는 전체 대화를 삭제할 수 있습니다. 삭제는 다른
+      기기에도 전파됩니다.</li>
+  <li><strong>API 키</strong> — 키를 비우면 키체인에서 제거됩니다.</li>
+  <li><strong>전체</strong> — 앱을 삭제하면 로컬 데이터베이스가 사라집니다. 노트는 사용자의
+      파일이므로 <em>Rambledump</em> 폴더를 직접 삭제하기 전까지 iCloud Drive에 남습니다.</li>
+</ul>
+
+<h2>6. 아동</h2>
+<p>Rambledump는 아동을 대상으로 하지 않으며, 누구로부터도 데이터를 수집하지 않습니다.</p>
+
+<h2>7. 변경</h2>
+<p>이 방침이 변경되면 새 시행일과 함께 이 주소에 개정판을 게시합니다.</p>
+
+<h2>8. 문의</h2>
+<p><a href="mailto:smoh2044@gmail.com">smoh2044@gmail.com</a></p>
+
+<footer>
+  Rambledump · <a href="https://sungminoh.github.io/">sungminoh.github.io</a>
+</footer>
+
+</main>
+</html>
