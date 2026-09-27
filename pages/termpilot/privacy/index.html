@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>TermPilot — Privacy Policy</title>
+<style>
+  :root{color-scheme:light dark;--fg:#111;--dim:#666;--rule:#e5e5e5;--bg:#fff;--accent:#111}
+  @media (prefers-color-scheme:dark){:root{--fg:#ececec;--dim:#9a9a9a;--rule:#2a2a2a;--bg:#131313;--accent:#ececec}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);
+       font-family:-apple-system,BlinkMacSystemFont,system-ui,"Segoe UI",sans-serif;
+       font-size:16px;line-height:1.65;-webkit-text-size-adjust:100%}
+  main{max-width:40rem;margin:0 auto;padding:3rem 1.25rem 5rem}
+  h1{font-size:1.6rem;line-height:1.25;margin:0 0 .4rem;letter-spacing:-.01em}
+  .meta{color:var(--dim);font-size:.85rem;margin:0 0 .5rem}
+  .langs{font-size:.85rem;margin:0 0 2.5rem}
+  .langs a{color:var(--dim)}
+  h2{font-size:1.05rem;margin:2.75rem 0 .75rem;letter-spacing:-.005em;
+     padding-top:1.5rem;border-top:1px solid var(--rule)}
+  h3{font-size:.95rem;margin:1.75rem 0 .5rem}
+  ul{padding-left:1.15rem;margin:.6rem 0}
+  li{margin:.4rem 0}
+  a{color:var(--accent)}
+  .lede{font-size:1.02rem}
+  .box{border:1px solid var(--rule);border-radius:12px;padding:1rem 1.15rem;margin:1.25rem 0}
+  .box p:first-child{margin-top:0}
+  .box p:last-child{margin-bottom:0}
+  table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.9rem;display:block;overflow-x:auto}
+  th,td{text-align:left;padding:.55rem .6rem;border-bottom:1px solid var(--rule);vertical-align:top}
+  th{font-weight:600;white-space:nowrap}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em}
+  footer{margin-top:3.5rem;padding-top:1.5rem;border-top:1px solid var(--rule);
+         color:var(--dim);font-size:.85rem}
+  hr.lang{margin:5rem 0 0;border:0;border-top:1px solid var(--rule)}
+</style>
+
+<main>
+
+<h1>TermPilot — Privacy Policy</h1>
+<p class="meta">Effective 27 September 2026 · Developer: Sungmin Oh</p>
+<p class="langs"><a href="#ko">한국어로 보기 ↓</a></p>
+
+<p class="lede"><strong>TermPilot does not collect your data.</strong> There is no account,
+no analytics, no tracking, no advertising, and no crash-reporting service. The developer
+runs no server. The app connects only to the servers you add, and your settings live on
+your device and in your own iCloud account.</p>
+
+<h2>1. Where your data lives</h2>
+<table>
+  <tr><th>What</th><th>Where</th></tr>
+  <tr><td>Saved hosts (name, hostname, port, username, sign-in method, tags, groups),
+          snippets, macros, app settings</td>
+      <td>A local database on your device. Hosts, groups, snippets and macros are also
+          mirrored to your other devices through <strong>iCloud Key-Value Storage</strong>,
+          which belongs to your Apple Account. Passwords and keys are never stored there.</td></tr>
+  <tr><td>Passwords, SSH private keys, Coder tokens, Cloudflare Access tokens</td>
+      <td>The iOS Keychain. They are stored as iCloud Keychain items, so if you have
+          iCloud Keychain turned on they reach your other devices end-to-end encrypted by
+          Apple; if it is off, they never leave the device.</td></tr>
+  <tr><td>Terminal output, command history, file listings</td>
+      <td>In memory and on your device only, for the running session and the app's own
+          features (search, recent commands). Never sent anywhere.</td></tr>
+  <tr><td>Voice model</td>
+      <td>Downloaded to the device the first time you use voice input (see 2.3).</td></tr>
+</table>
+
+<h2>2. What leaves your device</h2>
+
+<h3>2.1 Your connections</h3>
+<p>When you connect, TermPilot talks <em>directly</em> to the server you entered — over SSH,
+SFTP, or Mosh (which uses SSH to start the session and then encrypted UDP). If you configure
+a Coder deployment or Cloudflare Access for a host, the app talks directly to the URL you
+entered for it, using the token you supplied. Nothing passes through any server of the
+developer. What you type and what the server returns is between you and that server.</p>
+
+<h3>2.2 Local network</h3>
+<p>On Wi-Fi, the app looks for SSH servers advertising themselves on your local network
+(Bonjour, <code>_ssh._tcp</code>) so it can offer them under <em>Nearby</em>. iOS asks for
+your permission first. The results are shown to you and not stored or sent anywhere.</p>
+
+<h3>2.3 Voice input</h3>
+<p>Voice input is optional and uses <a href="https://github.com/argmaxinc/WhisperKit">WhisperKit</a>,
+which runs <strong>entirely on your device</strong>. The first time you turn it on, the app
+downloads the speech model from Hugging Face (<code>huggingface.co</code>,
+repository <code>argmaxinc/whisperkit-coreml</code>) — a plain file download that sends no
+audio and no personal data. Audio is processed in memory and is never recorded, stored,
+or transmitted.</p>
+
+<h3>2.4 Apple services</h3>
+<p>iCloud Key-Value Storage and iCloud Keychain are provided by Apple under
+<a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>. Data in them
+belongs to your Apple Account and is not accessible to the developer.</p>
+
+<h2>3. What the developer receives</h2>
+<p><strong>Nothing.</strong> There is no backend, no telemetry, no analytics SDK, and no
+third-party tracking or crash-reporting library in the app. Diagnostic logs are written through
+Apple's system logging and stay on your device.</p>
+<p>If you email support, the developer sees only what you choose to include.</p>
+
+<h2>4. Device permissions</h2>
+<ul>
+  <li><strong>Microphone</strong> — only for voice input, only while you are dictating.</li>
+  <li><strong>Local network</strong> — to find SSH servers on your Wi-Fi and to connect to
+      hosts you add on your local network.</li>
+</ul>
+<p>TermPilot does <strong>not</strong> use location, contacts, photos, calendars, or health data.</p>
+
+<h2>5. Deleting your data</h2>
+<ul>
+  <li><strong>A host</strong> — deleting it removes it from this device and, through iCloud,
+      from your other devices.</li>
+  <li><strong>The voice model</strong> — can be removed in Settings → Voice Input → Voice Settings.</li>
+  <li><strong>Everything</strong> — deleting the app removes its local database. Items in
+      iCloud Key-Value Storage and iCloud Keychain belong to your Apple Account and can be
+      removed there (Settings → [your name] → iCloud, and the Passwords app).</li>
+</ul>
+
+<h2>6. Children</h2>
+<p>TermPilot is not directed to children and collects no data from anyone.</p>
+
+<h2>7. Changes</h2>
+<p>If this policy changes, the revised version will be posted at this address with a new
+effective date.</p>
+
+<h2>8. Contact</h2>
+<p><a href="mailto:smoh2044@gmail.com">smoh2044@gmail.com</a></p>
+
+
+<hr class="lang">
+
+<h1 id="ko" style="margin-top:3rem">TermPilot — 개인정보처리방침</h1>
+<p class="meta">시행일 2026년 9월 27일 · 개발자: 오성민</p>
+
+<p class="lede"><strong>TermPilot은 사용자의 데이터를 수집하지 않습니다.</strong> 계정도,
+분석 도구도, 추적도, 광고도, 크래시 리포팅 서비스도 없습니다. 개발자는 서버를 운영하지
+않습니다. 앱은 사용자가 추가한 서버에만 접속하며, 설정은 기기와 사용자 본인의 iCloud
+계정에 저장됩니다.</p>
+
+<h2>1. 데이터가 저장되는 곳</h2>
+<table>
+  <tr><th>무엇</th><th>어디</th></tr>
+  <tr><td>저장한 호스트(이름, 호스트명, 포트, 사용자명, 인증 방식, 태그, 그룹),
+          스니펫, 매크로, 앱 설정</td>
+      <td>기기의 로컬 데이터베이스. 호스트·그룹·스니펫·매크로는 사용자의 Apple 계정에 속한
+          <strong>iCloud 키-값 저장소</strong>를 통해 다른 기기에도 동기화됩니다. 비밀번호와
+          키는 이곳에 저장되지 않습니다.</td></tr>
+  <tr><td>비밀번호, SSH 개인 키, Coder 토큰, Cloudflare Access 토큰</td>
+      <td>iOS 키체인. iCloud 키체인 항목으로 저장되므로, iCloud 키체인이 켜져 있으면 Apple의
+          종단간 암호화로 다른 기기에 전달되고, 꺼져 있으면 기기를 벗어나지 않습니다.</td></tr>
+  <tr><td>터미널 출력, 명령 기록, 파일 목록</td>
+      <td>실행 중인 세션과 앱 기능(검색, 최근 명령)을 위해 메모리와 기기에만 있습니다.
+          어디로도 전송되지 않습니다.</td></tr>
+  <tr><td>음성 모델</td>
+      <td>음성 입력을 처음 쓸 때 기기에 내려받습니다(2.3 참고).</td></tr>
+</table>
+
+<h2>2. 기기 밖으로 나가는 것</h2>
+
+<h3>2.1 사용자의 접속</h3>
+<p>접속하면 TermPilot은 사용자가 입력한 서버와 SSH, SFTP 또는 Mosh(SSH로 세션을 시작한 뒤
+암호화된 UDP 사용)로 <em>직접</em> 통신합니다. 호스트에 Coder 배포나 Cloudflare Access를
+설정했다면, 사용자가 입력한 URL과 토큰으로 그곳과 직접 통신합니다. 개발자의 서버를
+거치지 않습니다. 입력한 내용과 서버의 응답은 사용자와 그 서버 사이의 일입니다.</p>
+
+<h3>2.2 로컬 네트워크</h3>
+<p>Wi-Fi에서는 로컬 네트워크에 자신을 알리는 SSH 서버(Bonjour, <code>_ssh._tcp</code>)를
+찾아 <em>Nearby</em>에 보여줍니다. iOS가 먼저 권한을 묻습니다. 결과는 화면에만 표시되고
+저장하거나 전송하지 않습니다.</p>
+
+<h3>2.3 음성 입력</h3>
+<p>음성 입력은 선택 사항이며 <strong>전적으로 기기에서 실행되는</strong>
+<a href="https://github.com/argmaxinc/WhisperKit">WhisperKit</a>을 씁니다. 처음 켤 때 음성
+모델을 Hugging Face(<code>huggingface.co</code>, 저장소 <code>argmaxinc/whisperkit-coreml</code>)에서
+내려받습니다. 이는 일반 파일 다운로드이며 음성이나 개인 정보를 보내지 않습니다. 음성은
+메모리에서 처리되며 녹음·저장·전송되지 않습니다.</p>
+
+<h3>2.4 Apple 서비스</h3>
+<p>iCloud 키-값 저장소와 iCloud 키체인은 Apple이 제공하며
+<a href="https://www.apple.com/legal/privacy/">Apple 개인정보처리방침</a>을 따릅니다.
+이곳의 데이터는 사용자의 Apple 계정에 속하며 개발자는 접근할 수 없습니다.</p>
+
+<h2>3. 개발자가 받는 것</h2>
+<p><strong>없습니다.</strong> 백엔드도, 텔레메트리도, 분석 SDK도, 서드파티 추적·크래시 리포팅
+라이브러리도 앱에 없습니다. 진단 로그는 Apple 시스템 로깅을 통해 기기에만 남습니다.</p>
+<p>문의 메일을 보내면 개발자는 그 메일에 직접 담은 내용만 보게 됩니다.</p>
+
+<h2>4. 기기 권한</h2>
+<ul>
+  <li><strong>마이크</strong> — 음성 입력에만, 받아쓰는 동안에만 사용합니다.</li>
+  <li><strong>로컬 네트워크</strong> — Wi-Fi의 SSH 서버를 찾고, 로컬 네트워크에 있는 호스트에
+      접속하기 위해 사용합니다.</li>
+</ul>
+<p>위치, 연락처, 사진, 캘린더, 건강 데이터는 <strong>사용하지 않습니다.</strong></p>
+
+<h2>5. 데이터 삭제</h2>
+<ul>
+  <li><strong>호스트</strong> — 삭제하면 이 기기와, iCloud를 통해 다른 기기에서도 사라집니다.</li>
+  <li><strong>음성 모델</strong> — 설정 → Voice Input → Voice Settings에서 지울 수 있습니다.</li>
+  <li><strong>전체</strong> — 앱을 삭제하면 로컬 데이터베이스가 사라집니다. iCloud 키-값
+      저장소와 iCloud 키체인의 항목은 사용자의 Apple 계정에 속하며 그곳에서 지울 수 있습니다
+      (설정 → [이름] → iCloud, 그리고 암호 앱).</li>
+</ul>
+
+<h2>6. 아동</h2>
+<p>TermPilot은 아동을 대상으로 하지 않으며, 누구로부터도 데이터를 수집하지 않습니다.</p>
+
+<h2>7. 변경</h2>
+<p>이 방침이 변경되면 새 시행일과 함께 이 주소에 개정판을 게시합니다.</p>
+
+<h2>8. 문의</h2>
+<p><a href="mailto:smoh2044@gmail.com">smoh2044@gmail.com</a></p>
+
+<footer>
+  TermPilot · <a href="../support/">Support</a> · <a href="https://sungminoh.github.io/">sungminoh.github.io</a>
+</footer>
+
+</main>
+</html>
