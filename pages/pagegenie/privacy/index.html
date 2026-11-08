@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>PageGenie — Privacy Policy</title>
+<style>
+  :root{color-scheme:light dark;--fg:#111;--dim:#666;--rule:#e5e5e5;--bg:#fff;--accent:#111}
+  @media (prefers-color-scheme:dark){:root{--fg:#ececec;--dim:#9a9a9a;--rule:#2a2a2a;--bg:#131313;--accent:#ececec}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);
+       font-family:-apple-system,BlinkMacSystemFont,system-ui,"Segoe UI",sans-serif;
+       font-size:16px;line-height:1.65;-webkit-text-size-adjust:100%}
+  main{max-width:40rem;margin:0 auto;padding:3rem 1.25rem 5rem}
+  h1{font-size:1.6rem;line-height:1.25;margin:0 0 .4rem;letter-spacing:-.01em}
+  .meta{color:var(--dim);font-size:.85rem;margin:0 0 .5rem}
+  .langs{font-size:.85rem;margin:0 0 2.5rem}
+  .langs a{color:var(--dim)}
+  h2{font-size:1.05rem;margin:2.75rem 0 .75rem;letter-spacing:-.005em;
+     padding-top:1.5rem;border-top:1px solid var(--rule)}
+  h3{font-size:.95rem;margin:1.75rem 0 .5rem}
+  p,li{color:var(--fg)}
+  ul{padding-left:1.15rem;margin:.6rem 0}
+  li{margin:.4rem 0}
+  a{color:var(--accent)}
+  .lede{font-size:1.02rem}
+  .box{border:1px solid var(--rule);border-radius:12px;padding:1rem 1.15rem;margin:1.25rem 0}
+  .box p:first-child{margin-top:0}
+  .box p:last-child{margin-bottom:0}
+  table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.9rem;display:block;overflow-x:auto}
+  th,td{text-align:left;padding:.55rem .6rem;border-bottom:1px solid var(--rule);vertical-align:top}
+  th{font-weight:600;white-space:nowrap}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em}
+  footer{margin-top:3.5rem;padding-top:1.5rem;border-top:1px solid var(--rule);
+         color:var(--dim);font-size:.85rem}
+  hr.lang{margin:5rem 0 0;border:0;border-top:1px solid var(--rule)}
+</style>
+
+<main>
+
+<h1>PageGenie — Privacy Policy</h1>
+<p class="meta">Effective 7 November 2026 · Chrome extension · Developer: Sungmin Oh</p>
+<p class="langs"><a href="#ko">한국어로 보기 ↓</a></p>
+
+<p class="lede"><strong>PageGenie does not collect your data.</strong> There is no PageGenie
+account, no server, no analytics, no tracking and no advertising. What PageGenie keeps stays
+in your browser. It sends data only to the AI service <em>you</em> set up, to the sites of
+pictures you pick, and, if you connect it, to <em>your own</em> Google Drive. The developer
+receives none of it.</p>
+
+<h2>1. Where your data lives</h2>
+<table>
+  <tr><th>What</th><th>Where</th></tr>
+  <tr><td>Conversations, with the page text and pictures each question sent</td>
+      <td>This browser's extension storage. If you connect Google Drive, also files in a
+          <em>PageGenie</em> folder in your Drive (section 2.3).</td></tr>
+  <tr><td>Library: parked tab groups and their notes, the text kept of pages you bookmark
+          or park, titles, summaries and tags written by AI, and the search index</td>
+      <td>This browser (IndexedDB). Pages you save are also kept as ordinary Chrome
+          bookmarks.</td></tr>
+  <tr><td>Your profile, if you generate one</td>
+      <td>This browser only. It is not synced.</td></tr>
+  <tr><td>Token usage by feature and model</td>
+      <td>This browser only. It holds counts, not the text of your questions.</td></tr>
+  <tr><td>Settings: model choices, quick actions and their instructions, saved prompts,
+          excluded sites, language</td>
+      <td>Chrome's synced extension storage. If you use Chrome Sync, Google carries these
+          to your other computers on the same Chrome profile.</td></tr>
+  <tr><td>AI API keys, and your proxy's address, key and headers</td>
+      <td>This browser only, unencrypted in the extension's local storage, which web pages
+          and the extension's in-page scripts cannot read. They are never synced or
+          uploaded.</td></tr>
+</table>
+<p>Browsing history is not copied. PageGenie reads Chrome's history only to show results
+when you search on the New Tab page or in the address bar, and you can turn that off.</p>
+
+<h2>2. What leaves your browser</h2>
+
+<h3>2.1 The AI service you set up</h3>
+<p>PageGenie has no AI of its own. Until you add an OpenAI, Anthropic or Google Gemini API
+key, or the address of an OpenAI-compatible proxy, it sends nothing to any AI. Requests go
+<em>directly from your browser</em> to the service you chose, never through a server of the
+developer:</p>
+<table>
+  <tr><th>Service</th><th>Endpoint</th></tr>
+  <tr><td>OpenAI</td><td><code>api.openai.com</code></td></tr>
+  <tr><td>Anthropic</td><td><code>api.anthropic.com</code></td></tr>
+  <tr><td>Google Gemini</td><td><code>generativelanguage.googleapis.com</code></td></tr>
+  <tr><td>Your proxy</td><td>The address you enter, with the key and headers you set</td></tr>
+</table>
+
+<p>What is sent depends on what you do:</p>
+<ul>
+  <li><strong>A question in the side panel</strong>: your question and the earlier turns of
+      the conversation; the page's title and address; what you picked on the page, or the
+      page's text if you picked nothing; pictures in what you picked; library items you
+      attach; and your profile, if it is on. The side panel shows what goes before you
+      send.</li>
+  <li><strong>The in-page bubble and card</strong>: the text or element you selected, and
+      the instruction of the action you pressed.</li>
+  <li><strong>Library work in the background</strong>: the text of pages you bookmark or
+      park, and your group notes, so the AI can write titles, summaries and tags. You can
+      turn this off in Settings › AI. If you choose an embedding model for search by
+      meaning, that text and short digests of your conversations go to it.</li>
+  <li><strong>AI tools</strong>, on unless you turn them off in Settings › Advanced: while
+      answering, the AI may read elements of the current page, extract tables from it and
+      search your library.</li>
+  <li><strong>Your profile, when you ask for one</strong>: recent conversations go to the
+      AI, which writes a short profile of you.</li>
+  <li><strong>Model lists</strong>: PageGenie asks each service you set up which models it
+      offers.</li>
+</ul>
+<p>Browsing history never goes to any AI, in any of the above. Conversations that hold data
+from incognito windows are never used for digests or your profile.</p>
+
+<div class="box">
+  <p><strong>Retention by the AI service.</strong> For OpenAI, PageGenie asks that the
+  exchange not be stored (<code>store: false</code>). For Anthropic, the side panel asks the
+  service to cache the repeated beginning of a request for a short time, so it costs less.
+  Otherwise each service handles the data under the terms of the account whose key you
+  entered, and a proxy under the terms of whoever runs it. Please review their privacy
+  policies.</p>
+</div>
+
+<h3>2.2 Pictures you pick</h3>
+<p>When what you pick holds a picture, PageGenie downloads that picture from the site that
+hosts it, to send it to the AI with your question. No other information about you is sent
+to that site.</p>
+
+<h3>2.3 Google Drive, if you connect it</h3>
+<p><strong>Off until you connect it</strong> in Settings › Account &amp; Data. PageGenie then
+signs in with the Google account of your Chrome profile and asks only for access to files
+it creates (<code>drive.file</code>). It cannot see your other Drive files.</p>
+<ul>
+  <li>Your conversations, with the page text and pictures they sent, are kept as readable
+      files in a <em>PageGenie</em> folder in <em>your</em> Drive, so your other computers
+      on the same Google account have them. AI tools you connect to that Drive can read
+      them too.</li>
+  <li>API keys, your proxy's settings, and conversations from incognito windows are never
+      uploaded.</li>
+  <li>To show which account is connected, and check that it is still the same one,
+      PageGenie reads that account's email address and keeps it in this browser.</li>
+  <li>Deleting a conversation deletes it from Drive and from your other computers.</li>
+</ul>
+<p>PageGenie's use and transfer of information received from Google APIs adheres to the
+<a href="https://developers.google.com/terms/api-services-user-data-policy">Google API
+Services User Data Policy</a>, including the Limited Use requirements. Drive data is used
+only to sync your conversations, is never transferred to anyone else, and is never read by
+the developer.</p>
+
+<h3>2.4 Google's own Chrome features</h3>
+<p>Settings in Chrome's synced storage, and bookmarks PageGenie saves, travel through Chrome
+Sync when you have it on, under
+<a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</p>
+
+<h2>3. What the developer receives</h2>
+<p><strong>Nothing.</strong> There is no backend server, no telemetry, no analytics and no
+third-party tracking or crash-reporting code in the extension. Diagnostic messages go only
+to your browser's own developer console.</p>
+<p>PageGenie does not sell your data, does not use it for advertising or to decide
+creditworthiness, and does not transfer it to anyone except as described above, to give
+you the features you use.</p>
+<p>If you email the developer, they see only what you choose to include in that email.</p>
+
+<h2>4. Permissions</h2>
+<table>
+  <tr><th>Permission</th><th>Why</th></tr>
+  <tr><td>Access to the sites you visit</td>
+      <td>To read the page you ask about, show the in-page bubble and card, let you pick
+          elements, keep the text of pages you bookmark when you visit them (you can turn
+          this off), download pictures you pick, and reach the AI address you set.</td></tr>
+  <tr><td><code>activeTab</code>, <code>scripting</code></td>
+      <td>To run PageGenie on the page you are using.</td></tr>
+  <tr><td><code>sidePanel</code>, <code>contextMenus</code></td>
+      <td>To open the side panel, and offer PageGenie's actions on right-click.</td></tr>
+  <tr><td><code>tabs</code>, <code>tabGroups</code></td>
+      <td>To keep a conversation with its tab, list open tabs so you can park them, and
+          restore parked groups as Chrome tab groups.</td></tr>
+  <tr><td><code>bookmarks</code></td>
+      <td>To save pages to your library as bookmarks, and search your bookmarks.</td></tr>
+  <tr><td><code>history</code></td>
+      <td>To show your history in search on the New Tab page and in the address bar
+          (<code>pg</code>). It is never sent to any AI.</td></tr>
+  <tr><td><code>favicon</code></td>
+      <td>To show site icons from Chrome's own cache, without contacting any site.</td></tr>
+  <tr><td><code>storage</code>, <code>unlimitedStorage</code></td>
+      <td>To keep your conversations, library and settings in the browser.</td></tr>
+  <tr><td><code>identity</code></td>
+      <td>To sign in to Google Drive, only when you connect it.</td></tr>
+  <tr><td><code>alarms</code></td>
+      <td>To schedule sync and library work.</td></tr>
+  <tr><td>New Tab page, address bar keyword</td>
+      <td>To show your library on the New Tab page, and search it after typing
+          <code>pg</code>.</td></tr>
+</table>
+
+<h2>5. Incognito</h2>
+<p>PageGenie runs in incognito windows only if you allow it at <code>chrome://extensions</code>.
+Questions asked there still go to your AI service. Conversations holding incognito data are
+never uploaded to Drive, never indexed and never used for your profile, and they are deleted
+once no incognito window is left.</p>
+
+<h2>6. Your controls and deleting your data</h2>
+<ul>
+  <li><strong>Settings › Browsing &amp; Memory</strong> shows what PageGenie keeps. There you
+      can delete all conversations, the text kept of pages, the search index and your
+      profile; exclude sites, whose text is then never kept and which are never listed
+      from history; and turn off keeping page text, indexing conversations and history in
+      search.</li>
+  <li><strong>Settings › AI</strong>: remove a key or proxy, and turn off AI summaries of
+      your library.</li>
+  <li><strong>Settings › Account &amp; Data</strong>: disconnect Google Drive, or remove your
+      conversations from it. You can also delete the <em>PageGenie</em> folder in Drive
+      yourself.</li>
+  <li><strong>Uninstalling</strong> removes everything PageGenie stored in this browser.
+      Files in your Drive and bookmarks in Chrome stay until you delete them, because they
+      are yours.</li>
+</ul>
+
+<h2>7. Children</h2>
+<p>PageGenie is not directed to children, and collects no data from anyone.</p>
+
+<h2>8. Changes</h2>
+<p>If this policy changes, the revised version will be posted at this address with a new
+effective date.</p>
+
+<h2>9. Contact</h2>
+<p><a href="mailto:smoh2044@gmail.com">smoh2044@gmail.com</a></p>
+
+
+<hr class="lang">
+
+<h1 id="ko" style="margin-top:3rem">PageGenie — 개인정보처리방침</h1>
+<p class="meta">시행일 2026년 11월 7일 · Chrome 확장 프로그램 · 개발자: 오성민</p>
+
+<p class="lede"><strong>PageGenie는 사용자의 데이터를 수집하지 않습니다.</strong> PageGenie
+계정도, 서버도, 분석 도구도, 추적도, 광고도 없습니다. PageGenie가 보관하는 내용은 브라우저에
+남습니다. 데이터는 <em>사용자가</em> 설정한 AI 서비스, 사용자가 고른 그림이 있는 사이트,
+그리고 연결한 경우 <em>사용자 본인의</em> Google Drive로만 갑니다. 개발자는 아무것도 받지
+않습니다.</p>
+
+<h2>1. 데이터가 저장되는 곳</h2>
+<table>
+  <tr><th>무엇</th><th>어디</th></tr>
+  <tr><td>대화, 그리고 각 질문이 보낸 페이지 텍스트와 그림</td>
+      <td>이 브라우저의 확장 프로그램 저장소. Google Drive를 연결하면 Drive의
+          <em>PageGenie</em> 폴더에도 파일로 저장됩니다(2.3절).</td></tr>
+  <tr><td>라이브러리: 보관한 탭 그룹과 메모, 북마크하거나 보관한 페이지의 텍스트, AI가 쓴
+          제목·요약·태그, 검색 색인</td>
+      <td>이 브라우저(IndexedDB). 저장한 페이지는 일반 Chrome 북마크로도 남습니다.</td></tr>
+  <tr><td>프로필(직접 생성한 경우)</td>
+      <td>이 브라우저에만 저장되며 동기화되지 않습니다.</td></tr>
+  <tr><td>기능·모델별 토큰 사용량</td>
+      <td>이 브라우저에만 저장됩니다. 질문 내용이 아니라 수치만 담깁니다.</td></tr>
+  <tr><td>설정: 모델 선택, 빠른 작업과 지시문, 저장한 프롬프트, 제외한 사이트, 언어</td>
+      <td>Chrome의 동기화 확장 저장소. Chrome 동기화를 쓰면 Google이 같은 Chrome 프로필의
+          다른 컴퓨터로 전달합니다.</td></tr>
+  <tr><td>AI API 키, 프록시의 주소·키·헤더</td>
+      <td>이 브라우저에만, 확장 프로그램의 로컬 저장소에 암호화 없이 저장됩니다. 웹페이지와
+          확장 프로그램의 페이지 내 스크립트는 이를 읽을 수 없습니다. 동기화되거나
+          업로드되지 않습니다.</td></tr>
+</table>
+<p>방문 기록은 복사하지 않습니다. 새 탭 페이지나 주소창에서 검색할 때 결과를 보여주기 위해서만
+Chrome의 방문 기록을 읽으며, 이 기능은 끌 수 있습니다.</p>
+
+<h2>2. 브라우저 밖으로 나가는 것</h2>
+
+<h3>2.1 사용자가 설정한 AI 서비스</h3>
+<p>PageGenie에는 자체 AI가 없습니다. OpenAI, Anthropic, Google Gemini API 키나 OpenAI 호환
+프록시 주소를 넣기 전에는 어떤 AI에도 아무것도 보내지 않습니다. 요청은 <em>브라우저에서
+선택한 서비스로 직접</em> 가며, 개발자의 서버를 거치지 않습니다.</p>
+<table>
+  <tr><th>서비스</th><th>엔드포인트</th></tr>
+  <tr><td>OpenAI</td><td><code>api.openai.com</code></td></tr>
+  <tr><td>Anthropic</td><td><code>api.anthropic.com</code></td></tr>
+  <tr><td>Google Gemini</td><td><code>generativelanguage.googleapis.com</code></td></tr>
+  <tr><td>사용자의 프록시</td><td>입력한 주소, 그리고 설정한 키와 헤더</td></tr>
+</table>
+
+<p>전송되는 내용은 무엇을 하느냐에 따라 다릅니다.</p>
+<ul>
+  <li><strong>사이드 패널에서 질문</strong>: 질문과 그 대화의 이전 내용, 페이지 제목과 주소,
+      페이지에서 고른 부분(고르지 않았으면 페이지 텍스트), 고른 부분에 있는 그림, 첨부한
+      라이브러리 항목, 그리고 켜 둔 경우 프로필. 보내기 전에 사이드 패널에서 무엇이 가는지
+      보여줍니다.</li>
+  <li><strong>페이지 안의 버블과 카드</strong>: 선택한 텍스트나 요소, 누른 작업의 지시문.</li>
+  <li><strong>백그라운드의 라이브러리 작업</strong>: AI가 제목·요약·태그를 쓰도록 북마크하거나
+      보관한 페이지의 텍스트와 그룹 메모를 보냅니다. 설정 › AI에서 끌 수 있습니다. 의미 검색에
+      쓸 임베딩 모델을 고르면, 그 텍스트와 대화의 짧은 요약이 그 모델로 갑니다.</li>
+  <li><strong>AI 도구</strong>(설정 › 고급에서 끄지 않는 한 켜져 있음): 답하는 동안 AI가 현재
+      페이지의 요소를 읽고, 표를 추출하고, 라이브러리를 검색할 수 있습니다.</li>
+  <li><strong>프로필(요청한 경우)</strong>: 최근 대화를 AI에 보내 사용자에 관한 짧은 프로필을
+      쓰게 합니다.</li>
+  <li><strong>모델 목록</strong>: 설정한 각 서비스에 어떤 모델을 제공하는지 묻습니다.</li>
+</ul>
+<p>위 어느 경우에도 방문 기록은 AI로 가지 않습니다. 시크릿 창의 데이터가 담긴 대화는 대화
+요약이나 프로필에 쓰이지 않습니다.</p>
+
+<div class="box">
+  <p><strong>AI 서비스의 데이터 보존.</strong> OpenAI에는 해당 요청을 저장하지 말 것을
+  요청합니다(<code>store: false</code>). Anthropic에는 사이드 패널이 요청의 반복되는 앞부분을
+  잠시 캐시해 비용을 줄이도록 요청합니다. 그 밖의 처리는 입력한 키가 속한 계정의 약관을,
+  프록시는 그 운영자의 약관을 따릅니다. 각 서비스의 개인정보처리방침을 확인하시기 바랍니다.</p>
+</div>
+
+<h3>2.2 고른 그림</h3>
+<p>고른 부분에 그림이 있으면, 질문과 함께 AI에 보내기 위해 그 그림을 호스팅하는 사이트에서
+내려받습니다. 그 사이트에 사용자에 관한 다른 정보는 전송되지 않습니다.</p>
+
+<h3>2.3 Google Drive(연결한 경우)</h3>
+<p>설정 › 계정 및 데이터에서 <strong>연결하기 전까지는 꺼져 있습니다.</strong> 연결하면 Chrome
+프로필의 Google 계정으로 로그인하고, PageGenie가 만든 파일에 대한 권한(<code>drive.file</code>)만
+요청합니다. Drive의 다른 파일은 볼 수 없습니다.</p>
+<ul>
+  <li>대화는 그 대화가 보낸 페이지 텍스트와 그림과 함께 <em>사용자의</em> Drive 안
+      <em>PageGenie</em> 폴더에 읽을 수 있는 파일로 저장되어, 같은 Google 계정의 다른 컴퓨터로
+      전달됩니다. 그 Drive에 연결한 AI 도구도 읽을 수 있습니다.</li>
+  <li>API 키, 프록시 설정, 시크릿 창의 대화는 업로드되지 않습니다.</li>
+  <li>어떤 계정이 연결됐는지 보여주고 여전히 같은 계정인지 확인하기 위해, 그 계정의 이메일 주소를
+      읽어 이 브라우저에 보관합니다.</li>
+  <li>대화를 삭제하면 Drive와 다른 컴퓨터에서도 삭제됩니다.</li>
+</ul>
+<p>Google API에서 받은 정보의 사용과 전송은
+<a href="https://developers.google.com/terms/api-services-user-data-policy">Google API 서비스
+사용자 데이터 정책</a>과 그 제한적 사용(Limited Use) 요건을 따릅니다. Drive 데이터는 대화
+동기화에만 쓰이고, 누구에게도 전송되지 않으며, 개발자가 읽지 않습니다.</p>
+
+<h3>2.4 Google의 Chrome 기능</h3>
+<p>Chrome 동기화 저장소의 설정과 PageGenie가 저장한 북마크는, Chrome 동기화를 켠 경우
+<a href="https://policies.google.com/privacy">Google 개인정보처리방침</a>에 따라 Chrome
+동기화로 전달됩니다.</p>
+
+<h2>3. 개발자가 받는 것</h2>
+<p><strong>없습니다.</strong> 백엔드 서버도, 텔레메트리도, 분석 도구도, 서드파티 추적·크래시
+리포팅 코드도 확장 프로그램에 없습니다. 진단 메시지는 브라우저 자체의 개발자 콘솔에만
+남습니다.</p>
+<p>PageGenie는 사용자의 데이터를 판매하지 않고, 광고나 신용 평가에 쓰지 않으며, 사용하는
+기능을 제공하기 위해 위에 적은 경우 외에는 누구에게도 전송하지 않습니다.</p>
+<p>문의 메일을 보내면 개발자는 그 메일에 직접 담은 내용만 보게 됩니다.</p>
+
+<h2>4. 권한</h2>
+<table>
+  <tr><th>권한</th><th>이유</th></tr>
+  <tr><td>방문하는 사이트에 대한 접근</td>
+      <td>질문하는 페이지를 읽고, 페이지 안의 버블과 카드를 보여주고, 요소를 고르게 하고,
+          북마크한 페이지에 방문할 때 그 텍스트를 보관하고(끌 수 있음), 고른 그림을 내려받고,
+          설정한 AI 주소에 접속하기 위해서입니다.</td></tr>
+  <tr><td><code>activeTab</code>, <code>scripting</code></td>
+      <td>사용 중인 페이지에서 PageGenie를 실행하기 위해서입니다.</td></tr>
+  <tr><td><code>sidePanel</code>, <code>contextMenus</code></td>
+      <td>사이드 패널을 열고, 오른쪽 클릭 메뉴에 PageGenie의 작업을 넣기 위해서입니다.</td></tr>
+  <tr><td><code>tabs</code>, <code>tabGroups</code></td>
+      <td>대화를 그 탭에 이어 두고, 열린 탭을 보관할 수 있게 나열하고, 보관한 그룹을 Chrome 탭
+          그룹으로 복원하기 위해서입니다.</td></tr>
+  <tr><td><code>bookmarks</code></td>
+      <td>페이지를 북마크로 라이브러리에 저장하고, 북마크를 검색하기 위해서입니다.</td></tr>
+  <tr><td><code>history</code></td>
+      <td>새 탭 페이지와 주소창(<code>pg</code>) 검색에 방문 기록을 보여주기 위해서입니다. AI로는
+          보내지 않습니다.</td></tr>
+  <tr><td><code>favicon</code></td>
+      <td>어떤 사이트에도 접속하지 않고 Chrome 자체 캐시의 사이트 아이콘을 보여주기
+          위해서입니다.</td></tr>
+  <tr><td><code>storage</code>, <code>unlimitedStorage</code></td>
+      <td>대화, 라이브러리, 설정을 브라우저에 보관하기 위해서입니다.</td></tr>
+  <tr><td><code>identity</code></td>
+      <td>Google Drive를 연결할 때만 로그인하기 위해서입니다.</td></tr>
+  <tr><td><code>alarms</code></td>
+      <td>동기화와 라이브러리 작업을 예약하기 위해서입니다.</td></tr>
+  <tr><td>새 탭 페이지, 주소창 키워드</td>
+      <td>새 탭 페이지에 라이브러리를 보여주고, <code>pg</code>를 입력한 뒤 검색하게 하기
+          위해서입니다.</td></tr>
+</table>
+
+<h2>5. 시크릿 모드</h2>
+<p>PageGenie는 <code>chrome://extensions</code>에서 허용한 경우에만 시크릿 창에서 동작합니다.
+그곳에서 한 질문도 설정한 AI 서비스로 갑니다. 시크릿 데이터가 담긴 대화는 Drive에 업로드되지
+않고, 색인되지 않고, 프로필에 쓰이지 않으며, 시크릿 창이 모두 닫히면 삭제됩니다.</p>
+
+<h2>6. 설정과 데이터 삭제</h2>
+<ul>
+  <li><strong>설정 › 탐색 및 기억</strong>에서 PageGenie가 보관하는 내용을 확인할 수 있습니다.
+      모든 대화, 보관한 페이지 텍스트, 검색 색인, 프로필을 삭제할 수 있고, 사이트를 제외해 그
+      텍스트를 보관하지 않고 방문 기록에서도 나열하지 않게 할 수 있으며, 페이지 텍스트 보관,
+      대화 색인, 검색의 방문 기록을 끌 수 있습니다.</li>
+  <li><strong>설정 › AI</strong>: 키나 프록시를 지우고, 라이브러리의 AI 요약을 끌 수 있습니다.</li>
+  <li><strong>설정 › 계정 및 데이터</strong>: Google Drive 연결을 끊거나 Drive에서 대화를 제거할
+      수 있습니다. Drive의 <em>PageGenie</em> 폴더를 직접 삭제해도 됩니다.</li>
+  <li><strong>확장 프로그램을 삭제하면</strong> PageGenie가 이 브라우저에 저장한 모든 것이
+      사라집니다. Drive의 파일과 Chrome의 북마크는 사용자의 것이므로 직접 삭제하기 전까지
+      남습니다.</li>
+</ul>
+
+<h2>7. 아동</h2>
+<p>PageGenie는 아동을 대상으로 하지 않으며, 누구로부터도 데이터를 수집하지 않습니다.</p>
+
+<h2>8. 변경</h2>
+<p>이 방침이 변경되면 새 시행일과 함께 이 주소에 개정판을 게시합니다.</p>
+
+<h2>9. 문의</h2>
+<p><a href="mailto:smoh2044@gmail.com">smoh2044@gmail.com</a></p>
+
+<footer>
+  PageGenie · <a href="https://sungminoh.github.io/">sungminoh.github.io</a>
+</footer>
+
+</main>
+</html>
