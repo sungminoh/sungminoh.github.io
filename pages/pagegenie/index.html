@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>PageGenie — Chat with any page</title>
+<meta name="description" content="PageGenie is a Chrome extension: ask an AI about the page you are reading, in Chrome's side panel, with your own AI key.">
+<style>
+  :root{color-scheme:light dark;--fg:#111;--dim:#666;--rule:#e5e5e5;--bg:#fff;--accent:#111}
+  @media (prefers-color-scheme:dark){:root{--fg:#ececec;--dim:#9a9a9a;--rule:#2a2a2a;--bg:#131313;--accent:#ececec}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);
+       font-family:-apple-system,BlinkMacSystemFont,system-ui,"Segoe UI",sans-serif;
+       font-size:16px;line-height:1.65;-webkit-text-size-adjust:100%}
+  main{max-width:40rem;margin:0 auto;padding:3rem 1.25rem 5rem}
+  h1{font-size:1.6rem;line-height:1.25;margin:0 0 .4rem;letter-spacing:-.01em}
+  .meta{color:var(--dim);font-size:.85rem;margin:0 0 .5rem}
+  .langs{font-size:.85rem;margin:0 0 2.5rem}
+  .langs a{color:var(--dim)}
+  h2{font-size:1.05rem;margin:2.75rem 0 .75rem;letter-spacing:-.005em;
+     padding-top:1.5rem;border-top:1px solid var(--rule)}
+  ul{padding-left:1.15rem;margin:.6rem 0}
+  li{margin:.4rem 0}
+  a{color:var(--accent)}
+  .lede{font-size:1.02rem}
+  .links a{display:inline-block;margin:0 1rem .5rem 0}
+  footer{margin-top:3.5rem;padding-top:1.5rem;border-top:1px solid var(--rule);
+         color:var(--dim);font-size:.85rem}
+  hr.lang{margin:5rem 0 0;border:0;border-top:1px solid var(--rule)}
+</style>
+
+<main>
+
+<h1>PageGenie</h1>
+<p class="meta">A Chrome extension · Developer: Sungmin Oh</p>
+<p class="langs"><a href="#ko">한국어로 보기 ↓</a></p>
+
+<p class="lede">PageGenie opens beside any page in Chrome's side panel and answers from what is
+on your screen, with your own AI: an OpenAI, Anthropic or Google Gemini API key, or your own
+OpenAI-compatible proxy. There is no PageGenie account and no server of ours.</p>
+
+<p class="links">
+  <a href="https://chromewebstore.google.com/detail/plcjbgenhdenbhbabmepegmlgofjbhcb">Chrome Web Store</a>
+  <a href="privacy/">Privacy Policy</a>
+  <a href="mailto:smoh2044@gmail.com">Contact</a>
+</p>
+
+<h2>What it does</h2>
+<ul>
+  <li><strong>Ask about any page.</strong> Chat in the side panel about the article, document
+      or dashboard you are reading. Pick a table or paragraph and only that is sent, and the
+      panel shows exactly what goes to the AI.</li>
+  <li><strong>Answers on the page.</strong> Select text or Alt+click an element, and a bubble
+      offers Summarize, Translate, Explain and your own actions, answered in a card on the
+      page.</li>
+  <li><strong>Tables from pages.</strong> Turn repeating data into a table, and download it as
+      CSV or JSON.</li>
+  <li><strong>Your tabs and library.</strong> Park open tabs into groups with a note, restore
+      them as Chrome tab groups, and search parked tabs, bookmarks, conversations and history
+      from the New Tab page, or by typing <code>pg</code> in the address bar.</li>
+  <li><strong>Optional sync.</strong> Connect Google Drive, and your conversations reach your
+      other computers as readable files in a PageGenie folder in your own Drive.</li>
+</ul>
+
+<h2>Your data</h2>
+<p>Everything PageGenie keeps stays in your browser, unless you connect your own Google Drive.
+Requests go only to the AI service you set up. The developer receives nothing. Read the
+<a href="privacy/">Privacy Policy</a> for the details.</p>
+
+
+<hr class="lang">
+
+<h1 id="ko" style="margin-top:3rem">PageGenie</h1>
+<p class="meta">Chrome 확장 프로그램 · 개발자: 오성민</p>
+
+<p class="lede">PageGenie는 Chrome 사이드 패널에서 어떤 페이지든 바로 옆에서 열려, 화면에
+보이는 내용으로 답합니다. AI는 직접 연결합니다. OpenAI, Anthropic, Google Gemini API 키나 OpenAI
+호환 프록시를 쓸 수 있습니다. PageGenie 계정도, 저희 서버도 없습니다.</p>
+
+<p class="links">
+  <a href="https://chromewebstore.google.com/detail/plcjbgenhdenbhbabmepegmlgofjbhcb">Chrome 웹 스토어</a>
+  <a href="privacy/#ko">개인정보처리방침</a>
+  <a href="mailto:smoh2044@gmail.com">문의</a>
+</p>
+
+<h2>하는 일</h2>
+<ul>
+  <li><strong>어떤 페이지든 물어보기.</strong> 읽고 있는 기사, 문서, 대시보드에 대해 사이드
+      패널에서 대화합니다. 표나 문단을 고르면 그 부분만 보내고, AI에 가는 내용을 그대로
+      보여줍니다.</li>
+  <li><strong>페이지 위에서 답 받기.</strong> 텍스트를 선택하거나 요소를 Alt+클릭하면 버블에
+      요약, 번역, 설명과 내 작업이 나타나고, 답은 페이지 위 카드에 나옵니다.</li>
+  <li><strong>페이지에서 표 만들기.</strong> 반복되는 데이터를 표로 만들어 CSV나 JSON으로
+      내려받습니다.</li>
+  <li><strong>탭과 라이브러리.</strong> 열린 탭을 메모와 함께 그룹으로 보관하고 Chrome 탭
+      그룹으로 복원하며, 보관한 탭, 북마크, 대화, 방문 기록을 새 탭 페이지나 주소창의
+      <code>pg</code>로 검색합니다.</li>
+  <li><strong>선택 사항인 동기화.</strong> Google Drive를 연결하면 대화가 내 Drive의 PageGenie
+      폴더에 읽을 수 있는 파일로 저장되어 다른 컴퓨터로 전달됩니다.</li>
+</ul>
+
+<h2>내 데이터</h2>
+<p>PageGenie가 보관하는 모든 것은 브라우저에 남습니다. 내 Google Drive를 연결한 경우만
+예외입니다. 요청은 설정한 AI 서비스로만 가고, 개발자는 아무것도 받지 않습니다. 자세한 내용은
+<a href="privacy/#ko">개인정보처리방침</a>을 보세요.</p>
+
+<footer>
+  PageGenie · <a href="https://sungminoh.github.io/">sungminoh.github.io</a>
+</footer>
+
+</main>
+</html>
