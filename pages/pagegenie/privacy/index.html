@@ -38,7 +38,7 @@
 <main>
 
 <h1>PageGenie — Privacy Policy</h1>
-<p class="meta">Effective 7 November 2026 · Chrome extension · Developer: Sungmin Oh</p>
+<p class="meta">Effective 18 November 2026 · Chrome extension · Developer: Sungmin Oh</p>
 <p class="langs"><a href="#ko">한국어로 보기 ↓</a></p>
 
 <p class="lede"><strong>PageGenie does not collect your data.</strong> There is no PageGenie
@@ -56,7 +56,9 @@ receives none of it.</p>
   <tr><td>Library: parked tab groups and their notes, the text kept of pages you bookmark
           or park, titles, summaries and tags written by AI, and the search index</td>
       <td>This browser (IndexedDB). Pages you save are also kept as ordinary Chrome
-          bookmarks.</td></tr>
+          bookmarks. If you connect Google Drive, parked tab groups are also files in your
+          <em>PageGenie</em> folder (section 2.3); the text kept of pages and the search
+          index are not.</td></tr>
   <tr><td>Your profile, if you generate one</td>
       <td>This browser only. It is not synced.</td></tr>
   <tr><td>Token usage by feature and model</td>
@@ -102,8 +104,7 @@ developer:</p>
       turn this off in Settings › AI. If you choose an embedding model for search by
       meaning, that text and short digests of your conversations go to it.</li>
   <li><strong>AI tools</strong>, on unless you turn them off in Settings › Advanced: while
-      answering, the AI may read elements of the current page, extract tables from it and
-      search your library.</li>
+      answering, the AI may read elements of the current page and search your library.</li>
   <li><strong>Your profile, when you ask for one</strong>: recent conversations go to the
       AI, which writes a short profile of you.</li>
   <li><strong>Model lists</strong>: PageGenie asks each service you set up which models it
@@ -135,16 +136,20 @@ it creates (<code>drive.file</code>). It cannot see your other Drive files.</p>
       files in a <em>PageGenie</em> folder in <em>your</em> Drive, so your other computers
       on the same Google account have them. AI tools you connect to that Drive can read
       them too.</li>
+  <li>Your parked tab groups are kept there the same way: each group's name, note, tags and
+      colour, when you parked it, and each page's title, address and note. The text kept of
+      those pages is not uploaded.</li>
   <li>API keys, your proxy's settings, and conversations from incognito windows are never
       uploaded.</li>
   <li>To show which account is connected, and check that it is still the same one,
       PageGenie reads that account's email address and keeps it in this browser.</li>
-  <li>Deleting a conversation deletes it from Drive and from your other computers.</li>
+  <li>Deleting a conversation or a parked group deletes it from Drive and from your other
+      computers.</li>
 </ul>
 <p>PageGenie's use and transfer of information received from Google APIs adheres to the
 <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API
 Services User Data Policy</a>, including the Limited Use requirements. Drive data is used
-only to sync your conversations, is never transferred to anyone else, and is never read by
+only to sync your conversations and parked tab groups, is never transferred to anyone else, and is never read by
 the developer.</p>
 
 <h3>2.4 Google's own Chrome features</h3>
@@ -209,8 +214,9 @@ once no incognito window is left.</p>
   <li><strong>Settings › AI</strong>: remove a key or proxy, and turn off AI summaries of
       your library.</li>
   <li><strong>Settings › Account &amp; Data</strong>: disconnect Google Drive, or remove your
-      conversations from it. You can also delete the <em>PageGenie</em> folder in Drive
-      yourself.</li>
+      conversations and parked groups from it. You can also delete the <em>PageGenie</em>
+      folder in Drive yourself. There you can also export conversations and parked groups
+      to a folder on your computer, and import them from one; nothing else is sent.</li>
   <li><strong>Uninstalling</strong> removes everything PageGenie stored in this browser.
       Files in your Drive and bookmarks in Chrome stay until you delete them, because they
       are yours.</li>
@@ -230,7 +236,7 @@ effective date.</p>
 <hr class="lang">
 
 <h1 id="ko" style="margin-top:3rem">PageGenie — 개인정보처리방침</h1>
-<p class="meta">시행일 2026년 11월 7일 · Chrome 확장 프로그램 · 개발자: 오성민</p>
+<p class="meta">시행일 2026년 11월 18일 · Chrome 확장 프로그램 · 개발자: 오성민</p>
 
 <p class="lede"><strong>PageGenie는 사용자의 데이터를 수집하지 않습니다.</strong> PageGenie
 계정도, 서버도, 분석 도구도, 추적도, 광고도 없습니다. PageGenie가 보관하는 내용은 브라우저에
@@ -246,7 +252,9 @@ effective date.</p>
           <em>PageGenie</em> 폴더에도 파일로 저장됩니다(2.3절).</td></tr>
   <tr><td>라이브러리: 보관한 탭 그룹과 메모, 북마크하거나 보관한 페이지의 텍스트, AI가 쓴
           제목·요약·태그, 검색 색인</td>
-      <td>이 브라우저(IndexedDB). 저장한 페이지는 일반 Chrome 북마크로도 남습니다.</td></tr>
+      <td>이 브라우저(IndexedDB). 저장한 페이지는 일반 Chrome 북마크로도 남습니다. Google
+          Drive를 연결하면 보관한 탭 그룹은 Drive의 <em>PageGenie</em> 폴더에도 파일로
+          저장됩니다(2.3절). 페이지 텍스트와 검색 색인은 올라가지 않습니다.</td></tr>
   <tr><td>프로필(직접 생성한 경우)</td>
       <td>이 브라우저에만 저장되며 동기화되지 않습니다.</td></tr>
   <tr><td>기능·모델별 토큰 사용량</td>
@@ -287,7 +295,7 @@ Chrome의 방문 기록을 읽으며, 이 기능은 끌 수 있습니다.</p>
       보관한 페이지의 텍스트와 그룹 메모를 보냅니다. 설정 › AI에서 끌 수 있습니다. 의미 검색에
       쓸 임베딩 모델을 고르면, 그 텍스트와 대화의 짧은 요약이 그 모델로 갑니다.</li>
   <li><strong>AI 도구</strong>(설정 › 고급에서 끄지 않는 한 켜져 있음): 답하는 동안 AI가 현재
-      페이지의 요소를 읽고, 표를 추출하고, 라이브러리를 검색할 수 있습니다.</li>
+      페이지의 요소를 읽고 라이브러리를 검색할 수 있습니다.</li>
   <li><strong>프로필(요청한 경우)</strong>: 최근 대화를 AI에 보내 사용자에 관한 짧은 프로필을
       쓰게 합니다.</li>
   <li><strong>모델 목록</strong>: 설정한 각 서비스에 어떤 모델을 제공하는지 묻습니다.</li>
@@ -314,15 +322,17 @@ Chrome의 방문 기록을 읽으며, 이 기능은 끌 수 있습니다.</p>
   <li>대화는 그 대화가 보낸 페이지 텍스트와 그림과 함께 <em>사용자의</em> Drive 안
       <em>PageGenie</em> 폴더에 읽을 수 있는 파일로 저장되어, 같은 Google 계정의 다른 컴퓨터로
       전달됩니다. 그 Drive에 연결한 AI 도구도 읽을 수 있습니다.</li>
+  <li>보관한 탭 그룹도 같은 방식으로 저장됩니다: 그룹의 이름, 메모, 태그, 색, 보관한 시각, 그리고
+      각 페이지의 제목, 주소, 메모. 그 페이지들에서 보관한 텍스트는 업로드되지 않습니다.</li>
   <li>API 키, 프록시 설정, 시크릿 창의 대화는 업로드되지 않습니다.</li>
   <li>어떤 계정이 연결됐는지 보여주고 여전히 같은 계정인지 확인하기 위해, 그 계정의 이메일 주소를
       읽어 이 브라우저에 보관합니다.</li>
-  <li>대화를 삭제하면 Drive와 다른 컴퓨터에서도 삭제됩니다.</li>
+  <li>대화나 보관한 그룹을 삭제하면 Drive와 다른 컴퓨터에서도 삭제됩니다.</li>
 </ul>
 <p>Google API에서 받은 정보의 사용과 전송은
 <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API 서비스
-사용자 데이터 정책</a>과 그 제한적 사용(Limited Use) 요건을 따릅니다. Drive 데이터는 대화
-동기화에만 쓰이고, 누구에게도 전송되지 않으며, 개발자가 읽지 않습니다.</p>
+사용자 데이터 정책</a>과 그 제한적 사용(Limited Use) 요건을 따릅니다. Drive 데이터는 대화와
+보관한 탭 그룹의 동기화에만 쓰이고, 누구에게도 전송되지 않으며, 개발자가 읽지 않습니다.</p>
 
 <h3>2.4 Google의 Chrome 기능</h3>
 <p>Chrome 동기화 저장소의 설정과 PageGenie가 저장한 북마크는, Chrome 동기화를 켠 경우
@@ -382,8 +392,10 @@ Chrome의 방문 기록을 읽으며, 이 기능은 끌 수 있습니다.</p>
       텍스트를 보관하지 않고 방문 기록에서도 나열하지 않게 할 수 있으며, 페이지 텍스트 보관,
       대화 색인, 검색의 방문 기록을 끌 수 있습니다.</li>
   <li><strong>설정 › AI</strong>: 키나 프록시를 지우고, 라이브러리의 AI 요약을 끌 수 있습니다.</li>
-  <li><strong>설정 › 계정 및 데이터</strong>: Google Drive 연결을 끊거나 Drive에서 대화를 제거할
-      수 있습니다. Drive의 <em>PageGenie</em> 폴더를 직접 삭제해도 됩니다.</li>
+  <li><strong>설정 › 계정 및 데이터</strong>: Google Drive 연결을 끊거나 Drive에서 대화와 보관한
+      그룹을 제거할 수 있습니다. Drive의 <em>PageGenie</em> 폴더를 직접 삭제해도 됩니다. 이곳에서
+      대화와 보관한 그룹을 내 컴퓨터의 폴더로 내보내거나 폴더에서 가져올 수도 있으며, 이때 다른
+      곳으로 전송되는 것은 없습니다.</li>
   <li><strong>확장 프로그램을 삭제하면</strong> PageGenie가 이 브라우저에 저장한 모든 것이
       사라집니다. Drive의 파일과 Chrome의 북마크는 사용자의 것이므로 직접 삭제하기 전까지
       남습니다.</li>
