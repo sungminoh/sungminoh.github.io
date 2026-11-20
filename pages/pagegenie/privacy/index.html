@@ -38,7 +38,7 @@
 <main>
 
 <h1>PageGenie — Privacy Policy</h1>
-<p class="meta">Effective 18 November 2026 · Chrome extension · Developer: Sungmin Oh</p>
+<p class="meta">Effective 20 November 2026 · Chrome extension · Developer: Sungmin Oh</p>
 <p class="langs"><a href="#ko">한국어로 보기 ↓</a></p>
 
 <p class="lede"><strong>PageGenie does not collect your data.</strong> There is no PageGenie
@@ -59,6 +59,13 @@ receives none of it.</p>
           bookmarks. If you connect Google Drive, parked tab groups are also files in your
           <em>PageGenie</em> folder (section 2.3); the text kept of pages and the search
           index are not.</td></tr>
+  <tr><td>Captures you save to PageGenie: the picture, the address and title of the page it
+          was taken on, and when</td>
+      <td>This browser (IndexedDB), until you delete them. They are not synced to Google
+          Drive.</td></tr>
+  <tr><td>A capture you only ask about</td>
+      <td>This browser, while a tab holds it: it is deleted when you remove it from the side
+          panel, close the tab, or close the browser.</td></tr>
   <tr><td>Your profile, if you generate one</td>
       <td>This browser only. It is not synced.</td></tr>
   <tr><td>Token usage by feature and model</td>
@@ -99,6 +106,10 @@ developer:</p>
       send.</li>
   <li><strong>The in-page bubble and card</strong>: the text or element you selected, and
       the instruction of the action you pressed.</li>
+  <li><strong>A capture you ask about</strong>: the picture goes to the AI with your
+      questions from that tab, as pictures you pick do, until you remove it. Taking a capture
+      sends nothing: the picture is made in your browser and put on your clipboard, and
+      Download saves it as a file on your computer.</li>
   <li><strong>Library work in the background</strong>: the text of pages you bookmark or
       park, and your group notes, so the AI can write titles, summaries and tags. You can
       turn this off in Settings › AI. If you choose an embedding model for search by
@@ -128,6 +139,8 @@ hosts it, to send it to the AI with your question. No other information about yo
 to that site.</p>
 
 <h3>2.3 Google Drive, if you connect it</h3>
+<p>Captures you save are not uploaded to Drive. A conversation that sent a capture keeps
+that picture, as it keeps the other pictures it sent.</p>
 <p><strong>Off until you connect it</strong> in Settings › Account &amp; Data. PageGenie then
 signs in with the Google account of your Chrome profile and asks only for access to files
 it creates (<code>drive.file</code>). It cannot see your other Drive files.</p>
@@ -171,8 +184,9 @@ you the features you use.</p>
   <tr><th>Permission</th><th>Why</th></tr>
   <tr><td>Access to the sites you visit</td>
       <td>To read the page you ask about, show the in-page bubble and card, let you pick
-          elements, keep the text of pages you bookmark when you visit them (you can turn
-          this off), download pictures you pick, and reach the AI address you set.</td></tr>
+          elements, take a picture of what you picked when you press the camera, keep the text of
+          pages you bookmark when you visit them (you can turn this off), download pictures
+          you pick, and reach the AI address you set.</td></tr>
   <tr><td><code>activeTab</code>, <code>scripting</code></td>
       <td>To run PageGenie on the page you are using.</td></tr>
   <tr><td><code>sidePanel</code>, <code>contextMenus</code></td>
@@ -193,6 +207,9 @@ you the features you use.</p>
       <td>To sign in to Google Drive, only when you connect it.</td></tr>
   <tr><td><code>alarms</code></td>
       <td>To schedule sync and library work.</td></tr>
+  <tr><td><code>offscreen</code></td>
+      <td>To save a capture you download as a file, from PageGenie's own page, so the site
+          you are on cannot read it.</td></tr>
   <tr><td>New Tab page, address bar keyword</td>
       <td>To show your library on the New Tab page, and search it after typing
           <code>pg</code>.</td></tr>
@@ -202,15 +219,18 @@ you the features you use.</p>
 <p>PageGenie runs in incognito windows only if you allow it at <code>chrome://extensions</code>.
 Questions asked there still go to your AI service. Conversations holding incognito data are
 never uploaded to Drive, never indexed and never used for your profile, and they are deleted
-once no incognito window is left.</p>
+once no incognito window is left. Captures cannot be saved to PageGenie from an incognito
+window, and a capture you ask about there is deleted once no incognito window is left.</p>
 
 <h2>6. Your controls and deleting your data</h2>
 <ul>
   <li><strong>Settings › Browsing &amp; Memory</strong> shows what PageGenie keeps. There you
-      can delete all conversations, the text kept of pages, the search index and your
-      profile; exclude sites, whose text is then never kept and which are never listed
+      can delete all conversations, the text kept of pages, the search index, your captures
+      and your profile; exclude sites, whose text is then never kept and which are never listed
       from history; and turn off keeping page text, indexing conversations and history in
       search.</li>
+  <li><strong>The New Tab page › Captures</strong>: see, download and delete each capture
+      you saved.</li>
   <li><strong>Settings › AI</strong>: remove a key or proxy, and turn off AI summaries of
       your library.</li>
   <li><strong>Settings › Account &amp; Data</strong>: disconnect Google Drive, or remove your
@@ -236,7 +256,7 @@ effective date.</p>
 <hr class="lang">
 
 <h1 id="ko" style="margin-top:3rem">PageGenie — 개인정보처리방침</h1>
-<p class="meta">시행일 2026년 11월 18일 · Chrome 확장 프로그램 · 개발자: 오성민</p>
+<p class="meta">시행일 2026년 11월 20일 · Chrome 확장 프로그램 · 개발자: 오성민</p>
 
 <p class="lede"><strong>PageGenie는 사용자의 데이터를 수집하지 않습니다.</strong> PageGenie
 계정도, 서버도, 분석 도구도, 추적도, 광고도 없습니다. PageGenie가 보관하는 내용은 브라우저에
@@ -255,6 +275,12 @@ effective date.</p>
       <td>이 브라우저(IndexedDB). 저장한 페이지는 일반 Chrome 북마크로도 남습니다. Google
           Drive를 연결하면 보관한 탭 그룹은 Drive의 <em>PageGenie</em> 폴더에도 파일로
           저장됩니다(2.3절). 페이지 텍스트와 검색 색인은 올라가지 않습니다.</td></tr>
+  <tr><td>PageGenie에 저장한 캡처: 그림, 찍은 페이지의 주소와 제목, 찍은 시각</td>
+      <td>이 브라우저(IndexedDB). 삭제하기 전까지 남으며, Google Drive에는 동기화되지
+          않습니다.</td></tr>
+  <tr><td>묻기만 한 캡처</td>
+      <td>탭이 붙들고 있는 동안 이 브라우저에 남고, 사이드 패널에서 빼거나 탭이나 브라우저를
+          닫으면 삭제됩니다.</td></tr>
   <tr><td>프로필(직접 생성한 경우)</td>
       <td>이 브라우저에만 저장되며 동기화되지 않습니다.</td></tr>
   <tr><td>기능·모델별 토큰 사용량</td>
@@ -291,6 +317,9 @@ Chrome의 방문 기록을 읽으며, 이 기능은 끌 수 있습니다.</p>
       라이브러리 항목, 그리고 켜 둔 경우 프로필. 보내기 전에 사이드 패널에서 무엇이 가는지
       보여줍니다.</li>
   <li><strong>페이지 안의 버블과 카드</strong>: 선택한 텍스트나 요소, 누른 작업의 지시문.</li>
+  <li><strong>묻기를 누른 캡처</strong>: 고른 그림처럼, 빼기 전까지 그 탭에서 하는 질문과 함께
+      그림이 AI로 갑니다. 캡처를 찍는 것만으로는 아무것도 전송되지 않습니다. 그림은 브라우저
+      안에서 만들어져 클립보드에 들어가고, 다운로드하면 내 컴퓨터에 파일로 저장됩니다.</li>
   <li><strong>백그라운드의 라이브러리 작업</strong>: AI가 제목·요약·태그를 쓰도록 북마크하거나
       보관한 페이지의 텍스트와 그룹 메모를 보냅니다. 설정 › AI에서 끌 수 있습니다. 의미 검색에
       쓸 임베딩 모델을 고르면, 그 텍스트와 대화의 짧은 요약이 그 모델로 갑니다.</li>
@@ -315,6 +344,8 @@ Chrome의 방문 기록을 읽으며, 이 기능은 끌 수 있습니다.</p>
 내려받습니다. 그 사이트에 사용자에 관한 다른 정보는 전송되지 않습니다.</p>
 
 <h3>2.3 Google Drive(연결한 경우)</h3>
+<p>저장한 캡처는 Drive에 업로드되지 않습니다. 캡처를 보낸 대화는, 보낸 다른 그림처럼 그 그림도
+함께 담습니다.</p>
 <p>설정 › 계정 및 데이터에서 <strong>연결하기 전까지는 꺼져 있습니다.</strong> 연결하면 Chrome
 프로필의 Google 계정으로 로그인하고, PageGenie가 만든 파일에 대한 권한(<code>drive.file</code>)만
 요청합니다. Drive의 다른 파일은 볼 수 없습니다.</p>
@@ -352,7 +383,7 @@ Chrome의 방문 기록을 읽으며, 이 기능은 끌 수 있습니다.</p>
   <tr><th>권한</th><th>이유</th></tr>
   <tr><td>방문하는 사이트에 대한 접근</td>
       <td>질문하는 페이지를 읽고, 페이지 안의 버블과 카드를 보여주고, 요소를 고르게 하고,
-          북마크한 페이지에 방문할 때 그 텍스트를 보관하고(끌 수 있음), 고른 그림을 내려받고,
+          카메라를 누르면 고른 부분을 그림으로 찍고, 북마크한 페이지에 방문할 때 그 텍스트를 보관하고(끌 수 있음), 고른 그림을 내려받고,
           설정한 AI 주소에 접속하기 위해서입니다.</td></tr>
   <tr><td><code>activeTab</code>, <code>scripting</code></td>
       <td>사용 중인 페이지에서 PageGenie를 실행하기 위해서입니다.</td></tr>
@@ -375,6 +406,9 @@ Chrome의 방문 기록을 읽으며, 이 기능은 끌 수 있습니다.</p>
       <td>Google Drive를 연결할 때만 로그인하기 위해서입니다.</td></tr>
   <tr><td><code>alarms</code></td>
       <td>동기화와 라이브러리 작업을 예약하기 위해서입니다.</td></tr>
+  <tr><td><code>offscreen</code></td>
+      <td>다운로드하는 캡처를 PageGenie 자체 페이지에서 파일로 저장해, 보고 있는 사이트가 읽을 수
+          없게 하기 위해서입니다.</td></tr>
   <tr><td>새 탭 페이지, 주소창 키워드</td>
       <td>새 탭 페이지에 라이브러리를 보여주고, <code>pg</code>를 입력한 뒤 검색하게 하기
           위해서입니다.</td></tr>
@@ -383,14 +417,18 @@ Chrome의 방문 기록을 읽으며, 이 기능은 끌 수 있습니다.</p>
 <h2>5. 시크릿 모드</h2>
 <p>PageGenie는 <code>chrome://extensions</code>에서 허용한 경우에만 시크릿 창에서 동작합니다.
 그곳에서 한 질문도 설정한 AI 서비스로 갑니다. 시크릿 데이터가 담긴 대화는 Drive에 업로드되지
-않고, 색인되지 않고, 프로필에 쓰이지 않으며, 시크릿 창이 모두 닫히면 삭제됩니다.</p>
+않고, 색인되지 않고, 프로필에 쓰이지 않으며, 시크릿 창이 모두 닫히면 삭제됩니다. 시크릿 창에서는
+캡처를 PageGenie에 저장할 수 없고, 그곳에서 묻기를 누른 캡처는 시크릿 창이 모두 닫히면
+삭제됩니다.</p>
 
 <h2>6. 설정과 데이터 삭제</h2>
 <ul>
   <li><strong>설정 › 탐색 및 기억</strong>에서 PageGenie가 보관하는 내용을 확인할 수 있습니다.
-      모든 대화, 보관한 페이지 텍스트, 검색 색인, 프로필을 삭제할 수 있고, 사이트를 제외해 그
+      모든 대화, 보관한 페이지 텍스트, 검색 색인, 캡처, 프로필을 삭제할 수 있고, 사이트를 제외해 그
       텍스트를 보관하지 않고 방문 기록에서도 나열하지 않게 할 수 있으며, 페이지 텍스트 보관,
       대화 색인, 검색의 방문 기록을 끌 수 있습니다.</li>
+  <li><strong>새 탭 페이지 › Captures</strong>: 저장한 캡처를 하나씩 보고, 다운로드하고, 삭제할 수
+      있습니다.</li>
   <li><strong>설정 › AI</strong>: 키나 프록시를 지우고, 라이브러리의 AI 요약을 끌 수 있습니다.</li>
   <li><strong>설정 › 계정 및 데이터</strong>: Google Drive 연결을 끊거나 Drive에서 대화와 보관한
       그룹을 제거할 수 있습니다. Drive의 <em>PageGenie</em> 폴더를 직접 삭제해도 됩니다. 이곳에서
